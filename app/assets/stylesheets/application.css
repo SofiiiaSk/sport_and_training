@@ -425,7 +425,12 @@
   }
 
 
-  /* password pages*/ 
+  /* password pages
+ ... інші коментарі ...
+ *= require_tree .
+ *= require_self
+ *= require pasword
+ */
 
 .password-container {
   min-height: 100vh;
@@ -471,3 +476,5 @@
   color: #d4a356;
   text-decoration: none;
 }
+
+
