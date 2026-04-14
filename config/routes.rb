@@ -15,3 +15,6 @@ root "website#index"
   # Defines the root path route ("/")
   # root "posts#index"
 end
+
+
+
