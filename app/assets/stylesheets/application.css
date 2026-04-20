@@ -320,9 +320,10 @@
     }
   }
   /* Apps Grid */
-  .apps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  .apps-form {
+
+    display: flex;
+    flex-wrap: nowrap;
     gap: 25px;
   }
   

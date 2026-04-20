@@ -1,5 +1,7 @@
 
 <nav class="navbar">
+
+
   <div class="logo">  <%= image_tag "logo_fit.png", height:50 %> </div>
   <div class="nav-links">
     <button class="nav-btn active" onclick="openTab(event, 'main')">
@@ -68,9 +70,10 @@
   </section>
 </div>
 
-<section id="training-types-section" class="training-wrapper">
-  <div class="content-container">
-    <h1 class="main-section-title gold-gradient-text">Оберіть свій напрямок</h1>
+<div id="types" class="tab-content">
+  <section id="training-types-section" class="training-wrapper">
+    <div class="content-container">
+      <h1 class="main-section-title gold-gradient-text">Оберіть свій напрямок</h1>
 
     <div class="training-item">
       <div class="training-img-box">
@@ -214,32 +217,62 @@
       </div>
     </div>
 
-  </div>
-</section>
-
-</section>
+     </div>
+  </section>
+</div>
 
 <div id="apps" class="tab-content container">
-  <h2 class="section-title gold-gradient-text">Преміальні додатки</h2>
-  <div class="apps-grid">
+  <h2 class="section-title gold-gradient-text">?</h2>
+  <div class="apps-form">
     <div class="app-card">
       <div class="app-header">
-        <h3>Lyfta</h3>
+        <h3>Lyfta: Gym Workout Tracker Log</h3>
         <span class="rating">★ 4.8</span>
       </div>
-      <p>Професійний щоденник тренувань для силових вправ.</p>
+      <p>Професійний трекер тренувань для спортзалу. 
+      Відстежуйте прогрес, створюйте власні програми та аналізуйте результати.</p>
       <div class="app-links">
-        <a href="#">iOS</a><a href="#">Android</a>
+        <a href="https://apps.apple.com/ua/app/lyfta-gym-workout-tracker-log/id6443740936?l=uk">iOS</a><a href="https://play.google.com/store/apps/details?id=com.lyfta&hl=uk">Android</a>
       </div>
     </div>
+
+
+    <div class="apps-form">
+    <div class="app-card">
+      <div class="app-header">
+        <h3> Fitbod: Workout & Gym Planner</h3>
+        <span class="rating">★ 4.8</span>
+      </div>
+      <p>Персоналізований планувальник тренувань на базі штучного інтелекту. 
+      Адаптується до вашого обладнання, цілей та прогресу</p>
+      <div class="app-links">
+        <a href="https://apps.apple.com/ua/app/fitbod-workout-gym-planner/id1041517543">iOS</a><a href="https://play.google.com/store/apps/details?id=com.fitbod.fitbod&hl">Android</a>
+      </div>
+    </div>
+
+
+    <div class="apps-form">
+    <div class="app-card">
+      <div class="app-header">
+        <h3> Home Workout: Full Body Workout</h3>
+        <span class="rating">★ 4.8</span>
+      </div>
+      <p>Повноцінні тренування для всього тіла без обладнання. Ідеально для домашніх тренувань.</p>
+      <div class="app-links">
+        <a href="https://apps.apple.com/ua/app/home-workout-no-equipments/id1313192037?l=uk">iOS</a><a href="https://play.google.com/store/apps/details?id=homeworkout.homeworkouts.noequipment&hl=uk">Android</a>
+      </div>
+    </div>
+
     <div class="app-card">
       <div class="app-header">
         <h3>Calz</h3>
-        <span class="rating">★ 4.6</span>
+        <span class="rating">★ 4.7</span>
       </div>
-      <p>Зручний підрахунок калорій та макронутрієнтів.</p>
+      <p>Відстеження калорій, білків, жирів, вуглеводів
+Персоналізовані рекомендації
+Денник харчування та статистика</p>
       <div class="app-links">
-        <a href="#">iOS</a><a href="#">Android</a>
+        <a href="https://apps.apple.com/ru/app/calz-%D1%80%D0%B0%D1%85%D1%83%D0%BD%D0%BE%D0%BA-%D0%BA%D0%B0%D0%BB%D0%BE%D1%80%D1%96%D0%B9-%D0%B7%D0%B0-%D1%84%D0%BE%D1%82%D0%BE/id6738832996?l=uk">iOS</a><a href="https://play.google.com/store/search?q=calz&c=apps&hl=uk">Android</a>
       </div>
     </div>
   </div>
@@ -263,5 +296,30 @@
     </div>
   </div>
 </div>
+
+<script>
+  function openTab(event, tabId) {
+    // Ховаємо всі блоки з контентом
+    document.querySelectorAll('.tab-content').forEach(content => {
+      content.style.display = 'none';
+      content.classList.remove('active');
+    });
+
+    // Знімаємо підсвітку з усіх кнопок
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    // Показуємо потрібний блок і підсвічуємо кнопку
+    const target = document.getElementById(tabId);
+    if (target) {
+      target.style.display = 'block';
+      target.classList.add('active');
+    }
+    event.currentTarget.classList.add('active');
+  }
+</script>
+
+
 
 
