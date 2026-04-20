@@ -1,6 +1,12 @@
 class WebsiteController < ApplicationController
-  allow_unauthenticated_access only: :index
+  allow_unauthenticated_access only: [:main, :training, :extensions]
 
-  def index
+  def main
+  end
+
+  def training
+  end
+
+  def extensions
   end
 end
