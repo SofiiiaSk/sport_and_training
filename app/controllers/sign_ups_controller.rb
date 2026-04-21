@@ -1,4 +1,6 @@
 class SignUpsController < ApplicationController
+  unauthenticated_access_only
+  
   def show
     @user = User.new
   end
