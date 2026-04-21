@@ -1,0 +1,14 @@
+<% content_for :title, "New exercise" %>
+<div class="exercise-container">
+  <div class="exercise-box">
+<h1>New exercise</h1>
+
+<%= render "form", exercise: @exercise %>
+
+<br>
+
+<div class="exersice-link">
+  <%= link_to "Back to exercises", exercises_path, class:"exersice-link" %>
+</div>
+
+

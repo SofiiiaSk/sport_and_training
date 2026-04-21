@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :exercises
   root "website#main"
   get "training", to: "website#training"
   get "extensions", to: "website#extensions"

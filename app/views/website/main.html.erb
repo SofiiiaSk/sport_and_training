@@ -1,3 +1,13 @@
+<%= month_calendar(events: @exercises) do |date, meetings| %>
+  <%= date %>
+  
+  <% meetings.each do |meeting| %>
+    <div>
+      <%= meeting.name %>
+    </div>
+  <% end %>
+<% end %>
+
 <div id="main" class="tab-content active">
   <section class="hero">
     <div class="hero-overlay">

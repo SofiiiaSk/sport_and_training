@@ -1,0 +1,42 @@
+.exercise-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exercise-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  color: #d4a356;
+  border-radius: 16px;
+  border: 1px solid rgba(212, 163, 86, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.form-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  color: #d4a356;
+  border: 1px solid #a67c37;
+  border-radius: 8px;
+}
+
+.button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  text-decoration: none;
+  border-radius: 8px;
+  color: #5c4033;
+  background: #d4a356;
+  cursor: pointer;
+}
+
+.exersice-link {
+  text-decoration: none;
+  text-align: center;
+  color: #d4a356;
+}
