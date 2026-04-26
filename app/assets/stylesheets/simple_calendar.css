@@ -1,5 +1,6 @@
 /* общий контейнер календаря */
 .simple-calendar {
+  font-family: "Montserrat", sans-serif;
   background: #111;
   border: 1px solid #c79a4b;
   margin: 30px 30px 30px 30px;
@@ -15,6 +16,7 @@
 
 /* заголовок месяца */
 .simple-calendar .calendar-heading {
+  font-family: "Montserrat", sans-serif;
   color: #c79a4b;
   font-size: 22px;
   margin-bottom: 15px;
