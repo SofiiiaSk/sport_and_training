@@ -1,5 +1,6 @@
 <% content_for :title, "Editing exercise" %>
-
+<div class="exercise-container">
+  <div class="exercise-box">
 <h1>Editing exercise</h1>
 
 <%= render "form", exercise: @exercise %>
@@ -7,6 +8,7 @@
 <br>
 
 <div class="exersice-link">
-  <%= link_to "Show this exercise", @exercise %> |
-  <%= link_to "Back to exercises", exercises_path%>
+  <%= link_to "Show this exercise", @exercise, class:"exersice-link" %> |
+  <%= link_to "Back to exercises", exercises_path, class:"exersice-link" %>
+</div>
 </div>
