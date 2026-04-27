@@ -48,8 +48,8 @@
 }
 
 .exercise-show-links a {
+  margin-left: 10px;
     text-decoration: none;
-   margin-left: 10px;
   background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
