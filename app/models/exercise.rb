@@ -8,6 +8,10 @@ class Exercise < ApplicationRecord
     "Cardio"
   ]
 
+  # Associations
+  belongs_to :user
+
+  # Validations
   validates :duration, inclusion: { in: DURATIONS }
   validates :exercise_type, inclusion: { in: TYPES }
   validates :duration, numericality: { greater_than: 0 }
