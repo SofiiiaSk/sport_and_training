@@ -1,8 +1,6 @@
 class ExercisesController < ApplicationController
-  allow_unauthenticated_access
   before_action :set_exercise, only: %i[ show edit update destroy ]
-   
-
+  
   # GET /exercises or /exercises.json
   def index
     @exercises = Exercise.all
