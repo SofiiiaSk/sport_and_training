@@ -1,11 +1,9 @@
 <div class="exercise-show">
-<p style="color: #d4a356;"><%= notice %></p>
-
-<%= render @exercise %>
+  <p style="color: #d4a356;"><%= notice %></p>
+  <%= render @exercise %>
 </div>
 <div class="exercise-show-links">
   <%= link_to "Edit this exercise", edit_exercise_path(@exercise), class: "exercise-show-links" %> |
   <%= link_to "Back to exercises", exercises_path, class: "exercise-show-links" %>
-
   <%= button_to "Destroy this exercise", @exercise, method: :delete, class: "button-show" %>
 </div>

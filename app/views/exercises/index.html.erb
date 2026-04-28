@@ -1,10 +1,9 @@
 <div class="exercise-show">
-<p style="color: #d4a356;"><%= notice %></p>
-
-<% content_for :title, "Exercises" %>
-<div class="exercise-show">
-<h1>Exercises</h1>
-</div> 
+  <p style="color: #d4a356;"><%= notice %></p>
+  <% content_for :title, "Exercises" %>
+  <div class="exercise-show">
+    <h1>Exercises</h1>
+  </div>
 </div>
 <div class="exercise-show-links">
   <% @exercises.each do |exercise| %>
@@ -13,7 +12,5 @@
       <%= link_to "Show this exercise", exercise,  class: "exercise-show-links" %>
     </p>
   <% end %>
-
-<%= link_to "New exercise", new_exercise_path, class: "exercise-show-links"%>
+  <%= link_to "New exercise", new_exercise_path, class: "exercise-show-links"%>
 </div>
-
