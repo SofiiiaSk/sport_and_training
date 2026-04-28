@@ -1,6 +1,6 @@
 class ExercisesController < ApplicationController
   before_action :set_exercise, only: %i[ show edit update destroy ]
-
+  
   # GET /exercises or /exercises.json
   def index
     @exercises = Exercise.all
