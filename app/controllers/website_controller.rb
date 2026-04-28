@@ -16,4 +16,7 @@ class WebsiteController < ApplicationController
 
   def extensions
   end
+
+  def program
+  end
 end

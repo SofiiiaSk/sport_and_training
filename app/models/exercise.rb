@@ -2,10 +2,10 @@ class Exercise < ApplicationRecord
   DURATIONS = [15, 30, 45, 60, 90, 120]
   TYPES = [
     "Йога",
-    "Pilates",
-    "Stretching",
-    "Strength exercises",
-    "Cardio"
+    "Пілатес",
+    "Стретчинг",
+    "Силові вправи",
+    "Кардіо тренування"
   ]
 
   # Associations
