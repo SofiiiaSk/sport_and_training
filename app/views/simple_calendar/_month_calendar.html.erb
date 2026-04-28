@@ -1,41 +1,31 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
-    <time datetime="<%= start_date.strftime('%Y-%m') %>" class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></time>
-
+    <time datetime="<%= start_date.strftime('%Y-%m') %>" class="calendar-title"><%= l(start_date, format: "%B", locale: :uk).capitalize %> <%= start_date.year %></time>
     <nav>
-      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
-      <%= link_to t('simple_calendar.today', default: 'Today'), calendar.url_for_today_view %>
-      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+      <%= link_to t('simple_calendar.previous', default: 'Попередній місяць'), calendar.url_for_previous_view %>
+      <%= link_to t('simple_calendar.today', default: 'Сьогодні'), calendar.url_for_today_view %>
+      <%= link_to t('simple_calendar.next', default: 'Наступний місяць'), calendar.url_for_next_view %>
     </nav>
   </div>
-
-  <table class="table table-striped">
+  <table class="table table-striped days">
     <thead>
-
-<tr>
-
-<% date_range.slice(0, 7).each do |day| %>
-
-<th class="day_of_the_week"><%= t('date.abbr_day_names')[day.wday] %></th>
-
-<% end %>
-
-</tr>
-
-</thead>
-
-
-<tbody>
-  <% date_range.each_slice(7) do |week| %>
-    <tr>
-      <% week.each do |day| %>
-        <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-          <%# Выводим число дня %>
-          <span class="day-number"><%= day.strftime('%d') %></span>
+      <tr>
+        <% date_range.slice(0, 7).each do |day| %>
+          <th class="day_of_the_week"><%= t('date.abbr_day_names')[day.wday] %></th>
         <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% date_range.each_slice(7) do |week| %>
+        <tr>
+          <% week.each do |day| %>
+            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+              <span class="day-number"><%= day.strftime("%d") %></span>
+              <% instance_exec("", calendar.sorted_events_for(day), &passed_block) %>
+            <% end %>
+          <% end %>
+        </tr>
       <% end %>
-    </tr>
-  <% end %>
-</tbody>
+    </tbody>
   </table>
 </div>

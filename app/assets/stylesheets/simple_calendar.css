@@ -83,3 +83,6 @@
   margin-top: 4px;
 }
 
+table.days {
+  table-layout: fixed;
+}

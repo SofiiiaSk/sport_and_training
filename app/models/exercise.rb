@@ -1,11 +1,11 @@
 class Exercise < ApplicationRecord
   DURATIONS = [15, 30, 45, 60, 90, 120]
   TYPES = [
-    "Yoga",
-"Pilates",
-"Stretching",
-"Strength exercises",
-"Cardio"
+    "Йога",
+    "Pilates",
+    "Stretching",
+    "Strength exercises",
+    "Cardio"
   ]
 
   validates :duration, inclusion: { in: DURATIONS }
