@@ -1,3 +1,12 @@
+<h1>Статичний контент для програм додавати сюди</h1>
+<%= month_calendar(events: @exercises) do |date, meetings| %>
+  <%= date %>
+  <% meetings.each do |meeting| %>
+    <div>
+      <%= meeting.name %>
+    </div>
+  <% end %>
+<% end %>
 <div class="exercise-show">
   <p style="color: #d4a356;"><%= notice %></p>
   <% content_for :title, "Тренування" %>

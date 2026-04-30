@@ -5,15 +5,15 @@ default: &default
 
 development:
   <<: *default
-  username: sport_and_training
+  # username: sport_and_training
   database: sport_and_training_development
-  password: <%= Rails.application.credentials.dig(:development, :database_password) %>
+  # password: <%= Rails.application.credentials.dig(:development, :database_password) %>
 
 test:
   <<: *default
-  username: sport_and_training
+  # username: sport_and_training
   database: sport_and_training_test
-  password: <%= Rails.application.credentials.dig(:test, :database_password) %>
+  # password: <%= Rails.application.credentials.dig(:test, :database_password) %>
 
 production:
   primary: &primary_production
