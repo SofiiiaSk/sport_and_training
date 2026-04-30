@@ -322,16 +322,19 @@ a.nav-btn {
 /* Apps Grid */
 .apps-form {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 25px;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  row-gap: 20px;
 }
 
 .app-card {
+  flex: 0 0 calc(50% - 12px); /* 2 карточки в ряд */
   background: var(--card-bg);
   padding: 30px;
   border: 1px solid #222;
   border-radius: 8px;
   transition: 0.4s ease;
+  margin-left: 10px;
 }
 
 .app-card:hover {

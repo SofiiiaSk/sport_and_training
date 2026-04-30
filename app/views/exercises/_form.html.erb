@@ -2,7 +2,6 @@
   <% if exercise.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(exercise.errors.count, "error") %> prohibited this exercise from being saved:</h2>
-
       <ul>
         <% exercise.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,23 +9,19 @@
       </ul>
     </div>
   <% end %>
-
   <div>
-    <%= form.label :date, style: "display: block" %>
+    <%= form.label :date, "Дата Тренування", style: "display: block" %>
     <%= form.date_field :date, class:"form-input" %>
   </div>
-
   <div>
-    <%= form.label :duration, style: "display: block" %>
-    <%= form.number_field :duration, step: 15, class: "form-input"  %>
+    <%= form.label :duration, "Тривалість (хв)", style: "display: block" %>
+    <%= form.number_field :duration, step: 15,min: 15, class: "form-input"  %>
   </div>
-
   <div>
-    <%= form.label :exercise_type, style: "display: block" %>
-    <%= form.select :exercise_type, Exercise::TYPES.map { |t| [t.titleize, t] }, { prompt: "Select exercise type" }, class: "form-input" %>
+    <%= form.label :exercise_type, "Тип вправи", style: "display: block" %>
+    <%= form.select :exercise_type, Exercise::TYPES.map { |t| [t.titleize, t] }, { prompt: "Вибрати тип тренувань" }, class: "form-input" %>
   </div>
-
   <div>
-    <%= form.submit class: "button"%>
+    <%= form.submit "Зберегти", class: "button"%>
   </div>
 <% end %>

@@ -2,27 +2,22 @@
 <html>
   <head>
     <title>
-      <%= content_for(:title) || "Sport And Training — Твій шлях до
-      досконалості" %>
+      <%= content_for(:title) || "Sport And Training — Твій шлях до досконалості" %>
     </title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="application-name" content="Sport And Training" />
     <meta name="mobile-web-app-capable" content="yes" />
     <%= csrf_meta_tags %> <%= csp_meta_tag %> <%= yield :head %>
-
     <link rel="icon" href="/icon.png" type="image/png" />
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/icon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" />
-
     <!-- Import CSS -->
     <%= stylesheet_link_tag :app %>
-
     <!-- Import JavaScript -->
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
     <nav class="navbar">
       <div class="logo"><%= image_tag "logo_fit.png" , class: "logo" %></div>
@@ -30,15 +25,17 @@
         <%= link_to "Головна", root_path, class: "nav-btn #{'active' if current_page?(root_path)}" %>
         <%= link_to "Тренування", training_path, class: "nav-btn #{'active' if current_page?(training_path)}" %>
         <%= link_to "Додатки", extensions_path, class: "nav-btn #{'active' if current_page?(extensions_path)}" %>
+        <%= link_to "Програми", program_path, class: "nav-btn #{'active' if current_page?(program_path)}" %>
         <button class="nav-btn" onclick="openTab(event, 'video')">
           Відео-уроки
         </button>
-        <button class="nav-btn" onclick="openTab(event, 'programs')">
-          Програми
-        </button>
+        <% if authenticated? %>
+          <%= link_to "Вийти з Аккаунта", session_path, data: { turbo_method: :delete }, class: "nav-btn"  %>
+        <% else %>
+          <%= link_to "Ввійти в Аккаунт", new_session_path, class: "nav-btn" %>
+        <% end %>
       </div>
     </nav>
-
     <%= yield %>
   </body>
 </html>

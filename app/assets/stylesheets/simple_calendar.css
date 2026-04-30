@@ -1,94 +1,88 @@
+/* общий контейнер календаря */
 .simple-calendar {
-  table {
-    -webkit-border-horizontal-spacing: 0px;
-    -webkit-border-vertical-spacing: 0px;
-    background-color: rgba(0, 0, 0, 0);
-    border: 1px solid rgb(221, 221, 221);
-    border-collapse: collapse;
-    box-sizing: border-box;
-    max-width: 100%;
-    width: 100%;
-  }
+  font-family: "Montserrat", sans-serif;
+  background: #111;
+  border: 1px solid #c79a4b;
+  margin: 30px 30px 30px 30px;
+  border-radius: 20px;
+  padding: 20px;
+  color: #f5f5f5;
+  font-family: sans-serif;
+}
+.simple-calendar table {
+  border-radius: 12px;
+  overflow: hidden;
+}
 
-  tr {
-    border-collapse: collapse;
-  }
+/* заголовок месяца */
+.simple-calendar .calendar-heading {
+  font-family: "Montserrat", sans-serif;
+  color: #c79a4b;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
 
-  th {
-    padding: 6px;
-    border-bottom: 2px solid rgb(221, 221, 221);
-    border-collapse: collapse;
-    border-left: 1px solid rgb(221, 221, 221);
-    border-right: 1px solid rgb(221, 221, 221);
-    border-top: 0px none rgb(51, 51, 51);
-    box-sizing: border-box;
-    text-align: left;
-  }
+/* ссылки Previous Today Next */
+.simple-calendar .calendar-heading a {
+  color: #c79a4b;
+  text-decoration: none;
+  margin: 0 5px;
+}
 
-  td {
-    padding: 6px;
-    vertical-align: top;
-    width: 14%;
+.simple-calendar .calendar-heading a:hover {
+  text-decoration: underline;
+}
 
-    border: 1px solid #ddd;
-    border-top-color: rgb(221, 221, 221);
-    border-top-style: solid;
-    border-top-width: 1px;
-    border-right-color: rgb(221, 221, 221);
-    border-right-style: solid;
-    border-right-width: 1px;
-    border-bottom-color: rgb(221, 221, 221);
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-left-color: rgb(221, 221, 221);
-    border-left-style: solid;
-    border-left-width: 1px;
-  }
+/* таблица */
+.simple-calendar table {
+  width: 100%;
+  border-collapse: collapse;
+}
 
-  .calendar-heading nav {
-    display: inline-block;
-  }
+/* дни недели */
+.simple-calendar th {
+  color: #c79a4b;
+  font-weight: 600;
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
 
-  .day {
-    height: 80px;
-  }
+/* клетки дней */
+.simple-calendar td {
+  border: 1px solid #222;
+  height: 120px;
+  padding: 8px;
+  vertical-align: top;
+  background: #0d0d0d;
+}
 
-  .wday-0 {
-  }
-  .wday-1 {
-  }
-  .wday-2 {
-  }
-  .wday-3 {
-  }
-  .wday-4 {
-  }
-  .wday-5 {
-  }
-  .wday-6 {
-  }
+/* день при наведении */
+.simple-calendar td:hover {
+  background: #1a1a1a;
+}
 
-  .today {
-    background: #ffffc0;
-  }
+/* дни другого месяца */
+.simple-calendar .prev-month,
+.simple-calendar .next-month {
+  background: #1a1a1a;
+  color: #777;
+}
 
-  .past {
-  }
-  .future {
-  }
+/* текущий день */
+.simple-calendar .today {
+  border: 2px solid #c79a4b;
+}
 
-  .start-date {
-  }
+/* блок упражнения */
+.exercise-event {
+  background: #c79a4b;
+  color: #111;
+  padding: 3px 6px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-top: 4px;
+}
 
-  .prev-month {
-    background: #ddd;
-  }
-  .next-month {
-    background: #ddd;
-  }
-  .current-month {
-  }
-
-  .has-events {
-  }
+table.days {
+  table-layout: fixed;
 }

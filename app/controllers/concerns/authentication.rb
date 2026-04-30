@@ -15,7 +15,7 @@ module Authentication
       allow_unauthenticated_access **options
       before_action -> { redirect_to root_path if authenticated? }, **options
     end
-    end
+  end
 
   private
     def authenticated?

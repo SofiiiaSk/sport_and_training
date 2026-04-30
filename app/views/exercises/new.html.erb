@@ -1,14 +1,11 @@
-<% content_for :title, "New exercise" %>
+<% content_for :title, "Нове Тренування" %>
 <div class="exercise-container">
   <div class="exercise-box">
-<h1>New exercise</h1>
-
-<%= render "form", exercise: @exercise %>
-
-<br>
-
-<div class="exersice-link">
-  <%= link_to "Back to exercises", exercises_path, class:"exersice-link" %>
+    <h1>Нове Тренування</h1>
+    <%= render "form", exercise: @exercise %>
+    <br>
+    <div class="exersice-link">
+      <%= link_to "Назад до Тренувань", exercises_path, class: "exersice-link" %>
+    </div>
+  </div>
 </div>
-
-
