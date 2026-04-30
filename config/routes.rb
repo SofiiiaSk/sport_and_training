@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "website#main"
   get "training", to: "website#training"
   get "extensions", to: "website#extensions"
+  get "program", to: "website#program"
 
   resource :session, only: [:new, :create, :destroy]
   resources :passwords, param: :token, only: [:new, :edit, :create, :update]

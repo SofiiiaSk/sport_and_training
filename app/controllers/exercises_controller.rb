@@ -1,6 +1,6 @@
 class ExercisesController < ApplicationController
   before_action :set_exercise, only: %i[ show edit update destroy ]
-
+  
   # GET /exercises or /exercises.json
   def index
     @exercises = Exercise.all
@@ -22,6 +22,7 @@ class ExercisesController < ApplicationController
   # POST /exercises or /exercises.json
   def create
     @exercise = Exercise.new(exercise_params)
+    @exercise.user = Current.user
 
     respond_to do |format|
       if @exercise.save
