@@ -18,9 +18,10 @@ test:
 production:
   primary: &primary_production
     <<: *default
+    url: <%= ENV['DATABASE_URL'] %>
     database: sport_and_training_production
     username: sport_and_training
-    password: <%= ENV["SPORT_AND_TRAINING_DATABASE_PASSWORD"] %>
+    password: <%= ENV["DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: sport_and_training_production_cache
