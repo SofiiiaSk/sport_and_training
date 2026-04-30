@@ -1,38 +1,47 @@
 <div class="password-container">
   <div class="password-box">
-<h1>Sign Up</h1>
-
-<%= form_with model: @user, url: sign_up_path do |form| %>
-  <% if form.object.errors.any? %>
-    <div class="form-error">Error: <%= form.object.errors.full_messages.first %></div>
-  <% end %>
-
-  <div>
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, required: true, autofocus: true, autocomplete: "given-name", class: "form-input" %>
-  </div>
-
-  <div>
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, required: true, autocomplete: "family-name", class: "form-input" %>
-  </div>
-
-  <div>
-    <%= form.label :email_address %>
-    <%= form.email_field :email_address, required: true, autocomplete: "email", class: "form-input" %>
-  </div>
-
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password, required: true, autocomplete: "new-password",class: "form-input" %>
-  </div>
-
-  <div>
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password", class: "form-input" %>
-  </div>
-
-  <div>
-    <%= form.submit "Sign up", class: "form-button" %>
-  </div>
-<% end %>
+    <h1>Sign Up</h1>
+    <%= form_with model: @user, url: sign_up_path do |form| %>
+      <% if form.object.errors.any? %>
+        <div class="form-error">Error: <%= form.object.errors.full_messages.first %></div>
+      <% end %>
+      <div>
+        <%= form.label :first_name %>
+        <%= form.text_field :first_name, required: true, autofocus: true, autocomplete: "given-name", class: "form-input" %>
+      </div>
+      <div>
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name, required: true, autocomplete: "family-name", class: "form-input" %>
+      </div>
+      <div>
+        <%= form.label :email_address %>
+        <%= form.email_field :email_address, required: true, autocomplete: "email", class: "form-input" %>
+      </div>
+      <div>
+        <%= form.label :password %>
+        <div class="combo" data-controller="password-toggle">
+          <%= form.password_field :password, required: true, autocomplete: "new-password", class: "form-input", data: { password_toggle_target: "input" } %>
+          <%= image_tag "eye.svg", class: "trigger", data: {
+            action: "click->password-toggle#toggle",
+            password_toggle_target: "icon",
+            eye_icon: asset_path("eye.svg"),
+            eye_off_icon: asset_path("no-eye.svg")
+          } %>
+        </div>
+      </div>
+      <div>
+        <%= form.label :password_confirmation %>
+        <div class="combo" data-controller="password-toggle">
+          <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password", class: "form-input", data: { password_toggle_target: "input" } %>
+          <%= image_tag "eye.svg", class: "trigger", data: {
+            action: "click->password-toggle#toggle",
+            password_toggle_target: "icon",
+            eye_icon: asset_path("eye.svg"),
+            eye_off_icon: asset_path("no-eye.svg")
+          } %>
+        </div>
+      </div>
+      <div>
+        <%= form.submit "Sign up", class: "form-button" %>
+      </div>
+    <% end %>

@@ -43,3 +43,27 @@
   color: #d4a356;
   text-decoration: none;
 }
+
+.link-sign-up {
+  color: #d4a356;
+  text-decoration: none;
+}
+.input-with-icon {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.combo {
+  position: relative;
+}
+
+.combo .trigger {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  width: 22px;
+}
