@@ -278,6 +278,22 @@ a.nav-btn {
   margin-bottom: 15px;
   margin-top: 0;
 }
+/* Робимо відступи від країв сайту такими ж, як і між картками (24px) */
+#apps.tab-content {
+  padding-left: 24px !important;  /* Точно як column-gap */
+  padding-right: 24px !important; /* Точно як column-gap */
+  padding-top: 40px !important;   /* Залишаємо приємний відступ зверху для заголовка */
+  box-sizing: border-box !important;
+}
+
+/* Обмежуємо максимальну ширину, щоб на великих моніторах усе виглядало акуратно */
+@media (min-width: 1200px) {
+  #apps.tab-content {
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
 
 /* Уніфікований текст (однаковий шрифт, розмір та колір) */
 .check-list-style,
