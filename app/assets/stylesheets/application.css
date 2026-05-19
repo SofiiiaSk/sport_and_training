@@ -319,25 +319,39 @@ a.nav-btn {
     flex-direction: column;
   }
 }
-/* Apps Grid */
+/* Золотий градієнт для заголовків */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); /* Якщо у тебе свій градієнт, цю строку можна видалити */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* ЗАЛІЗОБЕТОННА СІТКА НА 2 КОЛОНКИ */
 .apps-form {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid !important; /* Примусово вмикаємо сітку */
+  grid-template-columns: repeat(2, 1fr) !important; /* Строго 2 рівні колонки */
   column-gap: 24px;
   row-gap: 20px;
-  justify-content: center; /* Центрируем, если контейнер шире карточек */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .app-card {
-  flex: 0 0 calc(50% - 12px); /* Оставляем как есть, это правильно для gap 24px */
+  /* Ширину більше рахувати не треба, grid зробить все сам */
   background: var(--card-bg);
   padding: 30px;
   border: 1px solid #222;
   border-radius: 8px;
   transition: 0.4s ease;
-  /* margin-left: 10px;  <-- УДАЛИТЕ ИЛИ ЗАКОММЕНТИРУЙТЕ ЭТУ СТРОКУ */
-  box-sizing: border-box; /* Гарантирует, что padding не раздувает карточку */
+  box-sizing: border-box; 
+  
+  /* Картки будуть однакової висоти в одному ряду, навіть якщо тексту десь менше */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
 .app-card:hover {
   border-color: var(--gold-main);
   transform: translateY(-10px);
@@ -354,6 +368,10 @@ a.nav-btn {
   font-weight: bold;
 }
 
+.app-links {
+  margin-top: 15px;
+}
+
 .app-links a {
   color: var(--gold-main);
   margin-right: 15px;
@@ -362,6 +380,7 @@ a.nav-btn {
   border: 1px solid var(--gold-main);
   padding: 5px 10px;
   transition: 0.3s;
+  display: inline-block;
 }
 
 .app-links a:hover {
@@ -369,51 +388,12 @@ a.nav-btn {
   color: #000;
 }
 
-/* Training Details */
-.training-detail {
-  display: flex;
-  gap: 60px;
-  align-items: center;
-  margin-bottom: 100px;
+/* --- Обов'язковий адаптив для телефонів --- */
+@media (max-width: 768px) {
+  .apps-form {
+    grid-template-columns: 1fr !important; /* На мобільних картки стануть в 1 колонку, щоб текст не стискався */
+  }
 }
-
-.reverse {
-  flex-direction: row-reverse;
-}
-
-.training-img img {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 4px;
-  filter: grayscale(0.3);
-}
-
-/* Program Cards */
-.programs-flex {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
-.p-card {
-  flex: 1;
-  padding: 40px;
-  background: #161616;
-  border-top: 4px solid #333;
-}
-
-.featured {
-  border-top-color: var(--gold-main);
-  transform: scale(1.05);
-  background: #1a1a1a;
-}
-
-.p-level {
-  color: var(--gold-main);
-  font-size: 12px;
-  letter-spacing: 3px;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   .training-detail,
