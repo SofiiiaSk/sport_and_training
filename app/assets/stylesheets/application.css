@@ -21,16 +21,11 @@
   --line-height: 1.7;
   --radius: 12px;
 }
-
-/* =========================================================
-   RESET + BASE
-========================================================= */
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-
-html, body {
+body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -42,51 +37,15 @@ body {
   font-family: "Montserrat", sans-serif;
   line-height: var(--line-height);
 }
-
-/* =========================================================
-   TYPOGRAPHY GLOBAL
-========================================================= */
-h1 {
-  font-size: var(--title-size);
-  margin: 0 0 20px;
-}
-
-h2 {
-  font-size: var(--subtitle-size);
-  margin: 0 0 15px;
-}
-
-p {
-  font-size: var(--text-size);
-  color: #d0d0d0;
-}
-
-/* gradient text */
+.tab-content.active {
+  display: block; /* Це показує активний блок */
+} /* Градієнтний текст */
 .gold-gradient-text {
   background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 700;
-}
-
-/* =========================================================
-   LAYOUT HELPERS
-========================================================= */
-.container {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* =========================================================
-   NAVBAR (GLOBAL)
-========================================================= */
+  font-weight: bold;
+} /* Навігація */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -106,68 +65,31 @@ img {
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 2px;
+  position: relative;
+  padding: 10px 0;
   transition: 0.3s;
 }
-
+a.nav-btn {
+  text-decoration: none;
+}
+.nav-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient);
+  transition: 0.3s;
+}
 .nav-btn:hover,
 .nav-btn.active {
   color: var(--gold-light);
 }
-
-/* =========================================================
-   TABS (GLOBAL LOGIC)
-========================================================= */
-.tab-content {
-  display: none;
-}
-
-.tab-content.active {
-  display: block;
-  margin-top: 10px;
-  color: #bebbbb;
-  font-size: 19px;
-}
-
-/* =========================================================
-   BUTTONS (GLOBAL)
-========================================================= */
-.button,
-.cta-button {
-  display: inline-block;
-  padding: 14px 30px;
-  background: var(--gradient);
-  color: #000;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-
-.button:hover,
-.cta-button:hover {
-  transform: translateY(-3px);
-}
-
-/* =========================================================
-   RESPONSIVE GLOBAL
-========================================================= */
-@media (max-width: 1024px) {
-  .navbar {
-    padding: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 20px;
-  }
-
-  .navbar {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-
+.nav-btn:hover::after,
+.nav-btn.active::after {
+  width: 100%;
+} /* Hero Section */
 .hero {
   height: 80vh;
   display: flex;
@@ -175,77 +97,260 @@ img {
   justify-content: center;
   text-align: center;
 }
-
 .hero-overlay {
-  background: rgba(0,0,0,0.7);
-  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  padding-bottom: 50px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .elegant-title {
   font-size: 4rem;
   font-weight: 300;
 }
-
-.training-wrapper {
-  padding: 80px 0;
+.hero-text {
+  text-align: center;
+  max-width: 800px;
 }
-
+.quote {
+  font-style: italic;
+  border-left: 4px solid #d8cfc4;
+  padding-left: 15px;
+  color: #ffffff;
+  font-size: 20px;
+}
+.quote span {
+  display: block;
+  margin-top: 10px;
+  font-size: 18px;
+  color: #bebbbb;
+  font-size: 19px;
+}
+.decorative-line-top {
+  width: 150px;
+  height: 3px;
+  background: var(--gold-main);
+  margin: 0 auto 20px;
+} /* Кнопка з градієнтом */
+.cta-button {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 18px 45px;
+  background: var(--gradient);
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: 0.4s;
+}
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(212, 163, 86, 0.3);
+} /* Advantages */
+.advantages-section {
+  padding: 100px 50px;
+  background: #111;
+  text-align: center;
+}
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+.adv-card {
+  padding: 40px;
+  border: 1px solid #222;
+  transition: 0.3s;
+}
+.adv-card:hover {
+  border-color: var(--gold-main);
+  background: #1a1a1a;
+} /* Загальна обгортка для відступу від країв браузера */ /* Основна обгортка секції */
+.training-wrapper {
+  background-color: #000; /* Чорний фон як на фото */
+  padding: 60px 0;
+} /* Контейнер з відступом 10% від країв сайту */
+.content-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 10%; /* Відступ 10% зліва і справа */
+} /* Головний заголовок */
+.main-section-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 60px;
+  font-weight: bold;
+} /* Блок одного тренування */
 .training-item {
   display: flex;
   gap: 50px;
-  margin-bottom: 80px;
-}
-
+  margin-bottom: 100px;
+} /* Реверс для шахового порядку */
 .reverse-row {
   flex-direction: row-reverse;
-}
-
+} /* Контейнер картинки */
 .training-img-box {
   flex: 1;
 }
-
+.training-img-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+} /* Контейнер тексту */
 .training-text-box {
   flex: 1;
 }
-
-/* cards */
-.detail-card {
-  background: rgba(255,255,255,0.05);
-  padding: 20px;
-  border: 1px solid rgba(212,163,86,0.2);
-  border-radius: 10px;
+.training-text-box h2 {
+  font-size: 36px;
+  margin-top: 0; /* Прибираємо відступ, щоб зрівняти з картинкою */
+  margin-bottom: 20px;
 }
-
-/* grid */
+.text-description {
+  font-size: 18px;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 21px;
+}
+.essence-line {
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 19px;
+}
+.essence-line span {
+  color: #d4a356; /* Золота вертикальна риска */
+  font-weight: bold;
+  margin-right: 5px;
+} /* Сітка з картками (Переваги та Кому підійде) */
 .details-grid {
   display: flex;
   gap: 20px;
 }
-
+.detail-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05); /* Легкий прозорий фон */
+  padding: 20px;
+  border: 1px solid rgba(212, 163, 86, 0.2);
+  border-radius: 4px;
+  font-size: 19px;
+}
+.detail-card h3 {
+  font-size: 16px;
+  color: #d4a356;
+  margin-bottom: 15px;
+  margin-top: 0;
+} /* Робимо відступи від країв сайту такими ж, як і між картками (24px) */
+#apps.tab-content {
+  padding-left: 24px !important; /* Точно як column-gap */
+  padding-right: 24px !important; /* Точно як column-gap */
+  padding-top: 40px !important; /* Залишаємо приємний відступ зверху для заголовка */
+  box-sizing: border-box !important;
+} /* Обмежуємо максимальну ширину, щоб на великих моніторах усе виглядало акуратно */
+@media (min-width: 1200px) {
+  #apps.tab-content {
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+} /* Уніфікований текст (однаковий шрифт, розмір та колір) */
+.check-list-style,
+.unified-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px; /* Однаковий розмір всюди */
+  color: #a0a0a0; /* Однаковий приглушений колір */
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 18px;
+}
+.check-list-style li {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+.check-list-style li::before {
+  content: "›"; /* Золотий символ перед списком */
+  position: absolute;
+  left: 0;
+  color: #d4a356;
+  font-weight: bold;
+} /* Адаптація для мобільних */
+@media (max-width: 900px) {
+  .training-item,
+  .reverse-row {
+    flex-direction: column;
+    text-align: center;
+  }
+  .training-img-box {
+    max-width: 100%;
+  }
+  .details-grid {
+    flex-direction: column;
+  }
+} /* Золотий градієнт для заголовків */
+.gold-gradient-text {
+  background: linear-gradient(
+    135deg,
+    #f6d365 0%,
+    #fda085 100%
+  ); /* Якщо у тебе свій градієнт, цю строку можна видалити */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+} /* ЗАЛІЗОБЕТОННА СІТКА НА 2 КОЛОНКИ */
 .apps-form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
-
 .app-card {
   background: var(--card-bg);
   padding: 30px;
   border: 1px solid #222;
-  border-radius: 12px;
+  border-radius: 8px;
+  transition: 0.4s ease;
+  box-sizing: border-box; /* Картки будуть однакової висоти в одному ряду, навіть якщо тексту десь менше */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
-/* hover */
 .app-card:hover {
   border-color: var(--gold-main);
   transform: translateY(-5px);
 }
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.rating {
+  color: var(--gold-main);
+  font-weight: bold;
+}
+.app-links {
+  margin-top: 15px;
+}
+.app-links a {
+  color: var(--gold-main);
+  margin-right: 15px;
+  font-size: 12px;
+  text-decoration: none;
+  border: 1px solid var(--gold-main);
+  padding: 5px 10px;
+  transition: 0.3s;
+  display: inline-block;
+}
+.app-links a:hover {
+  background: var(--gold-main);
+  color: #000;
+} /* --- Обов'язковий адаптив для телефонів --- */
 @media (max-width: 768px) {
-
   .training-item,
   .reverse-row {
     flex-direction: column;
@@ -258,8 +363,22 @@ img {
   .apps-form {
     grid-template-columns: 1fr;
   }
-
-  .elegant-title {
-    font-size: 2.5rem;
+} /* Responsive */
+@media (max-width: 768px) {
+  .training-detail,
+  .reverse {
+    flex-direction: column;
   }
+  .elegant-title {
+    font-size: 50px;
+  }
+  .programs-flex {
+    flex-direction: column;
+  }
+} /* Positionining logo in navbar */
+.navbar .logo img {
+  height: 70px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
