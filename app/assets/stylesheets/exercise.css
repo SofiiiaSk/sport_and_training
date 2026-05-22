@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px; /* Добавил отступ, чтобы на мобилках контент не прилипал к краям */
+  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -24,48 +24,46 @@
 }
 
 /* ==========================================================================
-   2. Адаптивная типографика (Текст, который удобно читать)
+   2. Точечное увеличение текста (Только для описания пилатеса)
    ========================================================================== */
 
-/* Главный заголовок секции (Оберіть свій напрямок) */
-.exercise-container h2, 
-.exercise-section-title {
-  color: #d4a356;
-  font-size: clamp(1.8rem, 4vw, 2.5rem); /* Плавно уменьшается от ПК к мобилке */
-  margin-bottom: 24px;
-}
-
 /* Название направления (ПІЛАТЕС) */
-.exercise-box h3, 
 .direction-title {
-  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-size: clamp(1.6rem, 3.8vw, 2.2rem); /* Заголовок "ПІЛАТЕС" делаем выразительным */
   letter-spacing: 1px;
   margin-bottom: 16px;
+  color: #d4a356;
 }
 
-/* Основное описание и суть упражнений */
-.exercise-box p, 
+/* Основной абзац про Пилатес */
 .direction-description {
-  font-size: 1.05rem;    /* Слегка увеличили базовый размер */
-  line-height: 1.6;     /* Больше воздуха между строками на темном фоне */
-  margin-bottom: 20px;
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem); /* Заметно крупнее для легкого чтения */
+  line-height: 1.6;
+  margin-bottom: 24px;
+  color: #ffffff; /* Белый текст на темном фоне читается лучше всего */
+}
+
+/* Строка "Суть: ..." (Делаем ещё крупнее и акцентнее, как ты просила) */
+.direction-essence {
+  font-size: clamp(1.2rem, 2.8vw, 1.35rem); /* Выделяется на фоне остального текста */
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #ffffff;
 }
 
 /* Заголовки внутри карточек (ПЕРЕВАГИ:, КОМУ ПІДІЙДЕ:) */
-.exercise-box h4, 
 .card-subtitle {
-  font-size: 1.1rem;
+  font-size: clamp(1.15rem, 2.5vw, 1.3rem); /* Сделали больше и заметнее */
   font-weight: bold;
   letter-spacing: 0.5px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
-/* Текст внутри списков преимуществ */
-.exercise-box ul, 
-.exercise-box li, 
+/* Текст внутри карточек (списки и абзацы) */
 .card-text {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: clamp(1.05rem, 2.2vw, 1.15rem); /* Тоже увеличили для удобства */
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8); /* Слегка приглушенный белый, чтобы не бил по глазам */
 }
 
 /* ==========================================================================
@@ -79,19 +77,18 @@
   color: #d4a356;
   border: 1px solid #a67c37;
   border-radius: 8px;
-  background: transparent; /* Чтобы инпут гармонично смотрелся на темном фоне */
-  font-size: 1rem;        /* Увеличили шрифт ввода (на iOS мелкий шрифт зумит экран) */
+  background: transparent;
+  font-size: 1rem; 
   box-sizing: border-box;
 }
 
-/* Стилизация плейсхолдера внутри инпута */
 .form-input::placeholder {
   color: rgba(212, 163, 86, 0.5);
 }
 
 .button {
   width: 100%;
-  padding: 14px; /* Чуть-чуть увеличил высоту кнопки для удобства клика */
+  padding: 14px;
   border: none;
   text-decoration: none;
   border-radius: 8px;
@@ -107,7 +104,7 @@
 }
 
 .button:hover {
-  background: #bd8f45; /* Легкий интерактив при наведении */
+  background: #bd8f45;
 }
 
 .button-show {
@@ -155,39 +152,4 @@
 
 .exercise-show-links a:hover {
   filter: brightness(1.2);
-}
-
-/* ==========================================================================
-   4. Медиа-запросы для мобильных устройств
-   ========================================================================== */
-
-/* Планшеты и телефоны (экраны меньше 768px) */
-@media (max-width: 768px) {
-  .exercise-box {
-    padding: 24px; /* Делаем бокс чуть компактнее снаружи */
-  }
-
-  .exercise-box p, 
-  .direction-description {
-    font-size: 1rem; /* Оптимальный размер для чтения на средних экранах */
-  }
-}
-
-/* Только мобильные телефоны (экраны меньше 480px) */
-@media (max-width: 480px) {
-  .exercise-box {
-    padding: 20px; 
-  }
-  
-  .exercise-box p, 
-  .direction-description {
-    font-size: 0.95rem; /* Аккуратный, компактный текст для смартфонов */
-    line-height: 1.5;
-  }
-
-  .exercise-box ul, 
-  .exercise-box li, 
-  .card-text {
-    font-size: 0.9rem; /* Чтобы списки преимуществ не занимали пол-экрана */
-  }
 }
