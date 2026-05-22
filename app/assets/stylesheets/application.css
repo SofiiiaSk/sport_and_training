@@ -123,6 +123,9 @@ img {
 
 .tab-content.active {
   display: block;
+  margin-top: 10px;
+  color: #bebbbb;
+  font-size: 19px;
 }
 
 /* =========================================================
