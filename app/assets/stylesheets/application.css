@@ -177,10 +177,8 @@ a.nav-btn {
     transform: rotate(-45deg);
   }
 
-  /* Показуємо накладання, коли меню відкрите */
-  .navbar.menu-open + .nav-overlay {
-    display: block;
-  }
+ .nav-overlay.active {
+  display: block;
 }
 
 /* Hero Section */
