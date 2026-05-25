@@ -21,7 +21,12 @@
   <body>
     <nav class="navbar">
       <div class="logo"><%= image_tag "logo_fit.png" , class: "logo" %></div>
-      <div class="nav-links">
+      <button class="menu-toggle" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="main-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div id="main-navigation" class="nav-links">
         <%= link_to "Головна", root_path, class: "nav-btn #{'active' if current_page?(root_path)}" %>
         <%= link_to "Тренування", training_path, class: "nav-btn #{'active' if current_page?(training_path)}" %>
         <%= link_to "Додатки", extensions_path, class: "nav-btn #{'active' if current_page?(extensions_path)}" %>
