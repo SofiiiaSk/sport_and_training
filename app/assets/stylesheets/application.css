@@ -18,6 +18,7 @@ body {
   background-color: var(--dark-bg);
   color: var(--white);
   font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
 }
 .tab-content {
   display: none; /* Це ховає все, крім активного */
@@ -34,6 +35,7 @@ body {
   -webkit-text-fill-color: transparent;
   font-weight: bold;
 }
+
 /* Navigation */
 .navbar {
   display: flex;
@@ -56,8 +58,8 @@ body {
 
 .navbar .logo img {
   display: block;
-  width: 82px;
-  height: auto;
+  width: auto;
+  height: 70px;
 }
 
 .nav-links {
@@ -105,16 +107,91 @@ body {
 .navbar.menu-open .menu-toggle span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
+
+.nav-links .nav-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--gold-main);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  margin: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1.8px;
+  position: relative;
+  padding: 10px 12px;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+  white-space: nowrap;
+}
+
+.nav-links .nav-btn::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  bottom: 6px;
+  left: 12px;
+  width: 0;
+  height: 2px;
+  background: var(--gradient);
+  transition: width 0.25s ease;
+}
+
+.nav-links .nav-btn:hover,
+.nav-links .nav-btn:focus-visible,
+.nav-links .nav-btn.active {
+  border-color: rgba(212, 163, 86, 0.55);
+  background: rgba(212, 163, 86, 0.12);
+  color: var(--gold-light);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.nav-links .nav-btn:hover::after,
+.nav-links .nav-btn:focus-visible::after,
+.nav-links .nav-btn.active::after {
+  width: calc(100% - 24px);
+}
+
+/* Tablet navigation */
+@media (max-width: 1100px) {
+  .navbar {
+    gap: 20px;
+    padding-inline: 28px;
+  }
+
+  .nav-links {
+    gap: 10px 14px;
+  }
+
+  .nav-links .nav-btn {
+    font-size: 12px;
+    letter-spacing: 1.4px;
+    padding-inline: 10px;
+  }
+}
+
 /* Mobile navigation */
 @media (max-width: 768px) {
   .navbar {
     align-items: center;
-    min-height: 78px;
+    min-height: 88px;
     padding: 12px 18px;
   }
 
   .navbar .logo img {
-    width: 66px;
+    height: 64px;
   }
 
   .menu-toggle {
@@ -128,10 +205,10 @@ body {
     right: 0;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 10px;
     max-height: 0;
     overflow: hidden;
-    padding: 0 18px;
+    padding: 0 16px;
     background: rgba(10, 10, 10, 0.98);
     border-bottom: 1px solid #222;
     opacity: 0;
@@ -144,29 +221,41 @@ body {
   }
 
   .navbar.menu-open .nav-links {
-    max-height: 360px;
-    padding: 12px 18px 18px;
+    max-height: 420px;
+    padding: 14px 16px 18px;
     opacity: 1;
     transform: translateY(0);
   }
 
-  .nav-btn {
+  .nav-links .nav-btn {
+    justify-content: flex-start;
     width: 100%;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    min-height: 48px;
+    padding: 14px 16px;
+    border: 1px solid rgba(212, 163, 86, 0.26);
+    border-radius: 4px;
+    background: rgba(212, 163, 86, 0.06);
+    color: var(--gold-main);
     text-align: left;
     font-size: 13px;
     letter-spacing: 1.6px;
+    transform: none;
   }
 
-  .nav-btn:last-child {
-    border-bottom: none;
+  .nav-links .nav-btn:hover,
+  .nav-links .nav-btn:focus-visible,
+  .nav-links .nav-btn.active {
+    border-color: rgba(241, 194, 125, 0.75);
+    background: rgba(212, 163, 86, 0.18);
+    color: var(--gold-light);
+    transform: none;
   }
 
-  .nav-btn::after {
+  .nav-links .nav-btn::after {
     display: none;
   }
 }
+
 /* Hero Section */
 .hero {
   height: 80vh;
@@ -176,15 +265,15 @@ body {
 }
 
 .hero-overlay {
-  background: rgba(0, 0, 0, 0.7);
-  padding-bottom: 50px;
-
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0 clamp(22px, 6vw, 72px) 50px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
-
 .elegant-title {
   font-family: "Playfair Display", serif;
   font-size: 90px;
@@ -196,6 +285,7 @@ body {
 .hero-text {
   text-align: center;
   max-width: 800px;
+  margin: 0 auto;
 }
 .quote {
   font-style: italic;
@@ -242,27 +332,70 @@ body {
   padding: 100px 50px;
   background: #111;
   text-align: center;
+  overflow: hidden;
 }
 
 .advantages-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 40px;
   margin-top: 60px;
-  color: #f5e6cc;
+  width: min(100%, 1180px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .adv-card {
   padding: 40px;
   border: 1px solid #222;
   transition: 0.3s;
+  text-align: center;
 }
-
 .adv-card:hover {
   border-color: var(--gold-main);
   background: #1a1a1a;
 }
 
+@media (max-width: 768px) {
+  .hero-overlay {
+    padding: 56px 24px 70px;
+  }
+
+  .hero-text {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  .elegant-title {
+    font-size: clamp(38px, 10vw, 48px);
+    line-height: 1.18;
+  }
+
+  .advantages-section {
+    padding: 72px 18px;
+  }
+
+  .advantages-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 42px;
+  }
+
+  .adv-card {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 34px 22px;
+    text-align: center;
+  }
+
+  .adv-card p {
+    max-width: 360px;
+    margin: 24px auto 0;
+    font-size: 20px;
+    line-height: 1.35;
+  }
+}
 /* Загальна обгортка для відступу від країв браузера */
 /* Основна обгортка секції */
 .training-wrapper {
