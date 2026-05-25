@@ -491,3 +491,23 @@ body {
   background: var(--gold-main);
   color: #000;
 }
+
+/* --- Обов'язковий адаптив для телефонів --- */
+@media (max-width: 768px) {
+  .apps-form {
+    grid-template-columns: 1fr !important; /* На мобільних картки стануть в 1 колонку, щоб текст не стискався */
+  }
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .training-detail,
+  .reverse {
+    flex-direction: column;
+  }
+  .elegant-title {
+    font-size: 50px;
+  }
+  .programs-flex {
+    flex-direction: column;
+  }
+}
