@@ -19,7 +19,17 @@ body {
   color: var(--white);
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
+  min-height: calc(100vh - 100px);
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(212, 163, 86, 0.12),
+      transparent 32rem
+    ),
+    linear-gradient(180deg, #050505 0%, #0a0a0a 48%, #111 100%);
+  padding: 72px clamp(18px, 5vw, 64px) 96px;
 }
+
 .tab-content {
   display: none; /* Це ховає все, крім активного */
 }
@@ -151,9 +161,6 @@ body {
 .nav-links .nav-btn:hover,
 .nav-links .nav-btn:focus-visible,
 .nav-links .nav-btn.active {
-  border-color: rgba(212, 163, 86, 0.55);
-  background: rgba(212, 163, 86, 0.12);
-  color: var(--gold-light);
   outline: none;
   transform: translateY(-1px);
 }
