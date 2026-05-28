@@ -1,17 +1,4 @@
-
-
-          <% meetings.each do |meeting| %>
-            <%= link_to exercise_path(meeting), class: "program-calendar-event #{meeting.exercise_type}" do %>
-              <span><%= Exercise::TYPE_LABELS.fetch(meeting.exercise_type, meeting.exercise_type.titleize) %></span>
-              <small><%= meeting.duration %> хв</small>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-    </section>
-  </div>
-</section>
-
+<h1>Статичний контент для програм додавати сюди</h1>
 <%= month_calendar(events: @exercises) do |date, meetings| %>
   <%= date %>
   <% meetings.each do |meeting| %>
