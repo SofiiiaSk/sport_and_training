@@ -31,9 +31,8 @@
         <%= link_to "Тренування", training_path, class: "nav-btn #{'active' if current_page?(training_path)}" %>
         <%= link_to "Додатки", extensions_path, class: "nav-btn #{'active' if current_page?(extensions_path)}" %>
         <%= link_to "Програми", exercises_path, class: "nav-btn #{'active' if current_page?(exercises_path)}" %>
-        <button class="nav-btn" onclick="openTab(event, 'video')">
-          Відео-уроки
-        </button>
+        <%= link_to "Відеоуроки", videolessons_path, class: "nav-btn #{'active' if current_page?(videolessons_path)}" %>
+      
         <% if authenticated? %>
           <%= link_to "Вийти з Аккаунта", session_path, data: { turbo_method: :delete }, class: "nav-btn"  %>
         <% else %>

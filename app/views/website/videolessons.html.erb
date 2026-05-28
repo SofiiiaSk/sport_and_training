@@ -1,0 +1,131 @@
+<% content_for :title, "Відеоуроки | Sport And Training" %>
+
+<%
+  videos = [
+    { id: "u3UjeyPOjoU", title: "10MIN everyday full body hourglass pilates workout", channel: "Lidia Mera", category: "pilates", category_label: "Пілатес", duration: "10:00", level: "Beginner", meta: "No equipment", url: "https://youtu.be/u3UjeyPOjoU" },
+    { id: "EmppvFV1kwk", title: "15 MIN morning pilates workout", channel: "Hong Rabbit", category: "pilates", category_label: "Пілатес", duration: "15:00", level: "Beginner", meta: "Morning routine", url: "https://youtu.be/EmppvFV1kwk" },
+    { id: "NJU8dcCacRY", title: "30 MIN pilates yoga workout", channel: "Move With Nicole", category: "pilates", category_label: "Пілатес + йога", duration: "30:00", level: "All levels", meta: "Stretch & strengthen", url: "https://youtu.be/NJU8dcCacRY" },
+    { id: "JFc3r_GEyNg", title: "Силова йога для зміцнення м'язів всього тіла", channel: "Йога Українською", category: "yoga", category_label: "Йога", duration: "Yoga flow", level: "Середній", meta: "Українською", url: "https://youtu.be/JFc3r_GEyNg" },
+    { id: "WnSr8w4QEWo", title: "30 Min flexibility + stretching routine", channel: "Eleni Fit", category: "stretching", category_label: "Стретчинг", duration: "30:00", level: "Beginner", meta: "Yoga inspired", url: "https://youtu.be/WnSr8w4QEWo" },
+    { id: "hA6IfPbEkoc", title: "15 MIN full body stretch routine", channel: "Lina Fit", category: "stretching", category_label: "Стретчинг", duration: "15:00", level: "All levels", meta: "Flexibility & mobility", url: "https://youtu.be/hA6IfPbEkoc" },
+    { id: "QyvwI9KUnWg", title: "Заминка + розтяжка на все тіло", channel: "Anastasiia Kovaliova", category: "stretching", category_label: "Стретчинг", duration: "14:00", level: "Легкий", meta: "Після тренування", url: "https://youtu.be/QyvwI9KUnWg" },
+    { id: "yL9c1Gmuv7I", title: "Розтяжка на все тіло", channel: "Karina Suprun", category: "stretching", category_label: "Стретчинг", duration: "Stretch", level: "All levels", meta: "Гнучкість", url: "https://youtu.be/yL9c1Gmuv7I" },
+    { id: "MU9KSsAM1N8", title: "Розтяжка для всього тіла та мобільність суглобів", channel: "v.tonyse", category: "stretching", category_label: "Стретчинг", duration: "Mobility", level: "Легкий", meta: "Ранок / вечір", url: "https://youtu.be/MU9KSsAM1N8" },
+    { id: "gHav--Sjhbk", title: "Кардіо тренування для максимального схуднення вдома", channel: "Olena Mandziuk", category: "cardio", category_label: "Кардіо", duration: "Cardio", level: "Інтенсивний", meta: "Українською", url: "https://youtu.be/gHav--Sjhbk" },
+    { id: "kZDvg92tTMc", title: "30 MIN pumping cardio workout", channel: "Caroline Girvan", category: "cardio", category_label: "Кардіо", duration: "30:00", level: "Середній", meta: "No equipment", url: "https://youtu.be/kZDvg92tTMc" },
+    { id: "2VNa1LyFs4A", title: "Тренування 4 в 1: кардіо, сила, мобільність, розтяжка", channel: "Mila Tymchuk", category: "mixed", category_label: "Мікс", duration: "50:00", level: "Середній", meta: "Функціональне тіло", url: "https://youtu.be/2VNa1LyFs4A" },
+    { id: "tbDYfrkWgeY", title: "Силове тренування full body", channel: "Iryna Pasiuta", category: "strength", category_label: "Силові", duration: "25:00", level: "Середній", meta: "Все тіло", url: "https://youtu.be/tbDYfrkWgeY" },
+    { id: "0NyFE6si-ig", title: "Легке силове тренування для початківців вдома", channel: "Ольга Бурик | Fit&Flex", category: "strength", category_label: "Силові", duration: "Beginner", level: "Початківець", meta: "Вдома", url: "https://youtu.be/0NyFE6si-ig" },
+    { id: "AtVwpvj5SYw", title: "Силове тренування з гантелями та фітнес-резинкою", channel: "Move with Dasha", category: "strength", category_label: "Силові", duration: "30:00", level: "Середній", meta: "Ноги та сідниці", url: "https://youtu.be/AtVwpvj5SYw" },
+    { id: "clxSxTbn7Zk", title: "Силове тренування вдома на все тіло", channel: "Lagartixa", category: "strength", category_label: "Силові", duration: "Full body", level: "Середній", meta: "Вдома", url: "https://youtu.be/clxSxTbn7Zk" },
+    { id: "r3XjKMgIaWU", title: "Силове тренування з резинкою", channel: "Перевтілення | Фітнес Тренування", category: "strength", category_label: "Силові", duration: "Interval", level: "Середній", meta: "Все тіло", url: "https://youtu.be/r3XjKMgIaWU" },
+    { id: "dcKwz_C8pkg", title: "15 Min beginner full bodyweight strength workout", channel: "Sunny Health & Fitness", category: "strength", category_label: "Силові", duration: "15:00", level: "Beginner", meta: "Bodyweight", url: "https://youtu.be/dcKwz_C8pkg" },
+    { id: "jeLxN-wt7jY", title: "30 minute full body HIIT & strength", channel: "Kaleigh Cohen Strength", category: "mixed", category_label: "HIIT + сила", duration: "30:00", level: "Інтенсивний", meta: "No repeat", url: "https://youtu.be/jeLxN-wt7jY" }
+  ]
+
+  channels = [
+    { name: "Yoga With Adriene", category: "Йога", url: "https://www.youtube.com/results?search_query=Yoga+With+Adriene" },
+    { name: "The Girl With The Pilates Mat", category: "Пілатес", url: "https://www.youtube.com/results?search_query=The+Girl+With+The+Pilates+Mat" },
+    { name: "Caroline Callander", category: "Пілатес / силові", url: "https://www.youtube.com/results?search_query=Caroline+Callander+pilates" },
+    { name: "Madeleine Abeid", category: "Пілатес / wellness", url: "https://www.youtube.com/results?search_query=Madeleine+Abeid+pilates" },
+    { name: "Йога Українською", category: "Йога", url: "https://www.youtube.com/@yogainukrainian" },
+    { name: "Eleni Fit", category: "Стретчинг / йога", url: "https://www.youtube.com/@EleniFit" },
+    { name: "Перевтілення | Фітнес Тренування", category: "Силові", url: "https://www.youtube.com/@boyko_trainer" },
+    { name: "Nobadaddiction", category: "Кардіо / танці", url: "https://www.youtube.com/results?search_query=Nobadaddiction+workout" },
+    { name: "Heather Robertson", category: "HIIT / силові", url: "https://www.youtube.com/results?search_query=Heather+Robertson" },
+    { name: "Juice & Toya", category: "Силові / HIIT", url: "https://www.youtube.com/results?search_query=Juice+and+Toya" }
+  ]
+%>
+
+<section class="video-library">
+  <div class="video-shell">
+    <header class="video-hero">
+      <p class="video-kicker">Sport And Training</p>
+      <h1 class="video-title gold-gradient-text">Відео-уроки</h1>
+      <p class="video-lead">
+        Добірка тренувань за напрямками: пілатес, йога, стретчинг, кардіо, силові та мікс-програми.
+      </p>
+    </header>
+
+    <div class="video-filter-bar" aria-label="Фільтр відеоуроків">
+      <button class="video-filter active" type="button" data-video-filter="all">Усі</button>
+      <button class="video-filter" type="button" data-video-filter="pilates">Пілатес</button>
+      <button class="video-filter" type="button" data-video-filter="yoga">Йога</button>
+      <button class="video-filter" type="button" data-video-filter="stretching">Стретчинг</button>
+      <button class="video-filter" type="button" data-video-filter="cardio">Кардіо</button>
+      <button class="video-filter" type="button" data-video-filter="strength">Силові</button>
+      <button class="video-filter" type="button" data-video-filter="mixed">Мікс</button>
+    </div>
+
+    <div class="featured-video" data-video-card data-video-category="<%= videos.first[:category] %>">
+      <button class="featured-media video-play-trigger" type="button" data-video-id="<%= videos.first[:id] %>" data-video-title="<%= videos.first[:title] %>" aria-label="Дивитися <%= videos.first[:title] %>">
+        <img src="https://i.ytimg.com/vi/<%= videos.first[:id] %>/hqdefault.jpg" alt="<%= videos.first[:title] %>">
+        <span class="play-badge">Play</span>
+        <span class="video-duration"><%= videos.first[:duration] %></span>
+      </button>
+      <div class="featured-copy">
+        <span class="video-chip"><%= videos.first[:category_label] %></span>
+        <h2><%= videos.first[:title] %></h2>
+        <p>Легкий старт для домашнього тренування: коротко, без інвентарю і добре підходить для першого блоку пілатесу.</p>
+        <button class="video-primary-button video-play-trigger" type="button" data-video-id="<%= videos.first[:id] %>" data-video-title="<%= videos.first[:title] %>">
+          Дивитися на сайті
+        </button>
+      </div>
+    </div>
+
+    <div class="video-grid">
+      <% videos.each do |video| %>
+        <article class="yt-card" data-video-card data-video-category="<%= video[:category] %>">
+          <button class="yt-thumb video-play-trigger" type="button" data-video-id="<%= video[:id] %>" data-video-title="<%= video[:title] %>" aria-label="Дивитися <%= video[:title] %>">
+            <img src="https://i.ytimg.com/vi/<%= video[:id] %>/hqdefault.jpg" alt="<%= video[:title] %>">
+            <span class="video-duration"><%= video[:duration] %></span>
+          </button>
+          <div class="yt-info">
+            <div class="channel-avatar"><%= video[:channel].first %></div>
+            <div class="yt-text">
+              <h3><%= video[:title] %></h3>
+              <p class="yt-channel"><%= video[:channel] %></p>
+              <p class="yt-meta"><%= video[:category_label] %> • <%= video[:level] %> • <%= video[:meta] %></p>
+            </div>
+            <a class="yt-menu" href="<%= video[:url] %>" target="_blank" rel="noopener" aria-label="Відкрити відео на YouTube">...</a>
+          </div>
+        </article>
+      <% end %>
+    </div>
+
+    <section class="channel-section">
+      <div>
+        <p class="video-kicker">YouTube добірка</p>
+        <h2 class="channel-title gold-gradient-text">Рекомендовані канали</h2>
+      </div>
+      <div class="channel-grid">
+        <% channels.each do |channel| %>
+          <a class="channel-card" href="<%= channel[:url] %>" target="_blank" rel="noopener">
+            <span class="channel-avatar channel-avatar-large"><%= channel[:name].first %></span>
+            <span>
+              <strong><%= channel[:name] %></strong>
+              <small><%= channel[:category] %></small>
+            </span>
+          </a>
+        <% end %>
+      </div>
+    </section>
+  </div>
+</section>
+
+<div class="video-modal" id="video-modal" aria-hidden="true">
+  <div class="video-modal-backdrop" data-video-close></div>
+  <div class="video-modal-dialog" role="dialog" aria-modal="true" aria-label="Відеопрогравач">
+    <button class="video-modal-close" type="button" data-video-close aria-label="Закрити відео">×</button>
+    <div class="video-frame-wrap">
+      <iframe
+        id="video-modal-frame"
+        title="YouTube video player"
+        src=""
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <h2 id="video-modal-title"></h2>
+  </div>
+</div>
