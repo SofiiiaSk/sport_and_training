@@ -1,4 +1,129 @@
-<h1>Статичний контент для програм додавати сюди</h1>
+
+<% content_for :title, "Програми | Sport And Training" %>
+
+<%
+  programs = [
+    {
+      level: "Початківець",
+      tag: "Start",
+      time: "20-30 хв",
+      days: "3 рази на тиждень",
+      focus: "мобільність, легке кардіо, базові рухи",
+      description: "М'який вхід у регулярні тренування без перевантаження. Добре підходить, якщо ти тільки повертаєшся до спорту.",
+      plan: ["День 1: пілатес або йога", "День 2: легке кардіо", "День 3: full body + розтяжка"]
+    },
+    {
+      level: "Середній",
+      tag: "Balance",
+      time: "35-50 хв",
+      days: "4 рази на тиждень",
+      focus: "силові, кардіо, стретчинг, стабільність",
+      description: "Збалансований режим для витривалості, форми та кращого тонусу тіла.",
+      plan: ["2 силові тренування", "1 кардіо або HIIT", "1 йога / стретчинг"]
+    },
+    {
+      level: "Просунутий",
+      tag: "Power",
+      time: "50-70 хв",
+      days: "5 разів на тиждень",
+      focus: "інтенсивність, прогресія, відновлення",
+      description: "Для тих, хто вже має базу і хоче сильнішу структуру з чітким навантаженням.",
+      plan: ["3 силові / functional", "1 інтенсивне кардіо", "1 mobility або yoga flow"]
+    }
+  ]
+%>
+
+<section class="page-section programs-page">
+  <div class="page-shell">
+    <header class="page-hero">
+      <h1 class="page-title gold-gradient-text">Програми тренувань</h1>
+      <p class="page-lead">
+        Обери рівень, плануй тренування в календарі та відмічай дні, коли займаєшся. Так легше бачити ритм і не губити прогрес.
+      </p>
+    </header>
+
+    <div class="program-level-grid">
+      <% programs.each do |program| %>
+        <article class="program-level-card">
+          <div class="program-card-top">
+            <span class="program-tag"><%= program[:tag] %></span>
+            <span class="program-time"><%= program[:time] %></span>
+          </div>
+          <h2><%= program[:level] %></h2>
+          <p><%= program[:description] %></p>
+          <dl class="program-stats">
+            <div>
+              <dt>Частота</dt>
+              <dd><%= program[:days] %></dd>
+            </div>
+            <div>
+              <dt>Фокус</dt>
+              <dd><%= program[:focus] %></dd>
+            </div>
+          </dl>
+          <ul class="program-plan-list">
+            <% program[:plan].each do |item| %>
+              <li><%= item %></li>
+            <% end %>
+          </ul>
+        </article>
+      <% end %>
+    </div>
+
+    <section class="program-guide">
+      <div>
+        <p class="page-kicker">Як починати</p>
+        <h2 class="section-heading gold-gradient-text">Структура одного тренування</h2>
+      </div>
+      <div class="guide-steps">
+        <div class="guide-step">
+          <span>01</span>
+          <strong>Розігрів</strong>
+          <p>5-8 хв мобільності: шия, плечі, таз, коліна, легкий пульс.</p>
+        </div>
+        <div class="guide-step">
+          <span>02</span>
+          <strong>Основний блок</strong>
+          <p>15-45 хв за рівнем: пілатес, силові, кардіо або йога.</p>
+        </div>
+        <div class="guide-step">
+          <span>03</span>
+          <strong>Заминка</strong>
+          <p>5-10 хв спокійної розтяжки та дихання, особливо після кардіо.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="planner-section">
+      <div class="planner-heading">
+        <div>
+          <p class="page-kicker">Calendar</p>
+          <h2 class="section-heading gold-gradient-text">Календар тренувань</h2>
+        </div>
+        <%= link_to "Додати тренування", new_exercise_path, class: "planner-action" %>
+      </div>
+
+      <div class="calendar-panel">
+        <%= month_calendar(events: @exercises) do |date, meetings| %>
+          <div class="calendar-day-top">
+            <span><%= date.day %></span>
+            <%= link_to "+", new_exercise_path(date: date), class: "calendar-add", aria: { label: "Додати тренування на #{date.strftime('%d.%m.%Y')}" } %>
+          </div>
+
+          <% meetings.each do |meeting| %>
+            <%= link_to exercise_path(meeting), class: "program-calendar-event #{meeting.exercise_type}" do %>
+              <span><%= Exercise::TYPE_LABELS.fetch(meeting.exercise_type, meeting.exercise_type.titleize) %></span>
+              <small><%= meeting.duration %> хв</small>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </section>
+  </div>
+</section>
+
+
+
 <%= month_calendar(events: @exercises) do |date, meetings| %>
   <%= date %>
   <% meetings.each do |meeting| %>
