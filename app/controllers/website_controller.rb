@@ -1,5 +1,5 @@
 class WebsiteController < ApplicationController
-  allow_unauthenticated_access only: [:main, :training, :extensions]
+  allow_unauthenticated_access only: [:main, :training, :extensions, :videolessons]
 
   def main
     start_date = params.fetch(:start_date, Date.today).to_date
@@ -18,5 +18,8 @@ class WebsiteController < ApplicationController
   end
 
   def program
+  end
+
+  def videolessons
   end
 end

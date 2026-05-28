@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "training", to: "website#training"
   get "extensions", to: "website#extensions"
   get "program", to: "website#program"
+  get "videolessons", to: "website#videolessons"
 
   resource :session, only: [:new, :create, :destroy]
   resources :passwords, param: :token, only: [:new, :edit, :create, :update]
