@@ -468,19 +468,29 @@ body {
     flex-direction: column;
   }
 }
-/* Apps Grid */
+/* ЗАЛІЗОБЕТОННА СІТКА НА 2 КОЛОНКИ */
 .apps-form {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 25px;
+  display: grid !important; /* Примусово вмикаємо сітку */
+  grid-template-columns: repeat(2, 1fr) !important; /* Строго 2 рівні колонки */
+  column-gap: 24px;
+  row-gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .app-card {
+  /* Ширину більше рахувати не треба, grid зробить все сам */
   background: var(--card-bg);
   padding: 30px;
   border: 1px solid #222;
   border-radius: 8px;
   transition: 0.4s ease;
+  box-sizing: border-box;
+
+  /* Картки будуть однакової висоти в одному ряду, навіть якщо тексту десь менше */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .app-card:hover {
@@ -499,6 +509,10 @@ body {
   font-weight: bold;
 }
 
+.app-links {
+  margin-top: 15px;
+}
+
 .app-links a {
   color: var(--gold-main);
   margin-right: 15px;
@@ -507,11 +521,40 @@ body {
   border: 1px solid var(--gold-main);
   padding: 5px 10px;
   transition: 0.3s;
+  display: inline-block;
 }
 
 .app-links a:hover {
   background: var(--gold-main);
   color: #000;
+}
+
+/* --- Обов'язковий адаптив для телефонів --- */
+@media (max-width: 768px) {
+  .apps-form {
+    grid-template-columns: 1fr !important; /* На мобільних картки стануть в 1 колонку, щоб текст не стискався */
+  }
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .training-detail,
+  .reverse {
+    flex-direction: column;
+  }
+  .elegant-title {
+    font-size: 50px;
+  }
+  .programs-flex {
+    flex-direction: column;
+  }
+}
+
+/* Positionining logo in navbar */
+.navbar .logo img {
+  height: 70px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 /* Training Details */
