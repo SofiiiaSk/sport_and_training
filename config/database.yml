@@ -5,9 +5,11 @@ default: &default
 
 development:
   <<: *default
-  # username: sport_and_training
+  adapter: postgresql
   database: sport_and_training_development
-  # password: <%= Rails.application.credentials.dig(:development, :database_password) %>
+  username: postgres
+  password: 12345
+  host: localhost
 
 test:
   <<: *default

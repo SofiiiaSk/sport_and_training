@@ -20,7 +20,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_30_122254) do
     t.integer "duration"
     t.string "exercise_type"
     t.datetime "updated_at", null: false
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_exercises_on_user_id"
   end
 

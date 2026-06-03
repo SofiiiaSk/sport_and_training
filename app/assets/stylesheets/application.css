@@ -19,6 +19,17 @@ body {
   color: var(--white);
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
+  background-color: #0b0a08; /* Глибокий темний фон */
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(212, 163, 86, 0.12),
+      transparent 32rem
+    ),
+    linear-gradient(180deg, #050505 0%, #0a0a0a 48%, #111 100%);
+  background-attachment: local; /* Щоб градієнт скроллився разом із контентом */
+  min-height: 100vh;
+  margin-bottom: 25px;
 }
 
 .page-section {
@@ -93,10 +104,17 @@ body {
 
 /* Градієнтний текст */
 .gold-gradient-text {
+  font-family:
+    "Playfair Display", "Georgia", serif; /* Serif робить засічки, як у "Відео-уроки" */
+  color: #d4a356; /* Золотавий колір букв */
+  font-size: 3.5rem; /* Розмір (підлаштуй під себе) */
+  font-weight: 400;
+  /*
   background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
+  */
 }
 
 /* Navigation */
@@ -211,16 +229,6 @@ body {
   transition: width 0.25s ease;
 }
 
-.nav-links .nav-btn:hover,
-.nav-links .nav-btn:focus-visible,
-.nav-links .nav-btn.active {
-  border-color: rgba(212, 163, 86, 0.55);
-  background: rgba(212, 163, 86, 0.12);
-  color: var(--gold-light);
-  outline: none;
-  transform: translateY(-1px);
-}
-
 .nav-links .nav-btn:hover::after,
 .nav-links .nav-btn:focus-visible::after,
 .nav-links .nav-btn.active::after {
@@ -234,6 +242,7 @@ body {
   text-align: center;
   align-items: center;
   overflow: hidden;
+  padding: 56px 24px 70px;
 }
 
 .hero-overlay {
@@ -264,7 +273,6 @@ body {
   border-left: 4px solid #d8cfc4;
   padding-left: 15px;
   color: var(--white);
-  margin: 24px auto 0;
   max-width: 680px;
 }
 
@@ -1594,7 +1602,6 @@ body {
 
   .section-title {
     max-width: 520px;
-    margin-left: auto;
     margin-right: auto;
     font-size: clamp(28px, 8vw, 38px);
     line-height: 1.15;
