@@ -1,4 +1,101 @@
-<h1>Статичний контент для програм додавати сюди</h1>
+<section class="clean-luxury-programs">
+  <div class="clean-luxury-head">
+    <div>
+      <h2>Твій шлях до сильного, легкого тіла</h2>
+    <p>
+      Три рівні, які можна проходити поступово або обирати під свій стан сьогодні.
+      Без хаотичних навантажень: тільки зрозумілий ритм, красивий рух і відчутний прогрес.
+    </p>
+  </div>
+  </div>
+
+  <div class="clean-program-list">
+    <!-- Картка 01 -->
+    <article class="clean-program-card">
+      <div class="clean-card-header">
+        <span class="clean-card-number">01 /</span>
+        <span class="clean-level">Початківець</span>
+      </div>
+      
+      <h3 class="clean-card-title">Відновлення, мобільність і легкість</h3>
+      
+      <p class="clean-main-text">
+        Спокійний старт для тіла, якому потрібне розвантаження після сидячого дня,
+        паузи у тренуваннях або постійної напруги. Програма допомагає повернути
+        відчуття рухливості, вирівняти поставу й підготувати м'язи до наступних рівнів.
+      </p>
+
+      <div class="clean-points">
+        <div class="clean-point">м'який стретчинг для спини, шиї та плечей</div>
+        <div class="clean-point">базовий пілатес для стабілізації кора</div>
+        <div class="clean-point">дихання, контроль руху та зняття скутості</div>
+      </div>
+      
+      <div class="clean-meta-tags">
+        <span class="clean-tag">15-30 хв</span>
+        <span class="clean-tag">2-3 рази на тиждень</span>
+        <span class="clean-tag">низька інтенсивність</span>
+      </div>
+    </article>
+
+    <!-- Картка 02 -->
+    <article class="clean-program-card">
+      <div class="clean-card-header">
+        <span class="clean-card-number">02 /</span>
+        <span class="clean-level">Середній рівень</span>
+      </div>
+      
+      <h3 class="clean-card-title">Тонус, сила і впевненість у русі</h3>
+      
+      <p class="clean-main-text">
+        Оптимальний рівень для стабільного прогресу: тіло вже готове працювати
+        активніше, але без різкого перевантаження. Тут з'являється більше сили,
+        витривалості й контролю, а тренування стають помітнішими за результатом.
+      </p>
+
+      <div class="clean-points">
+        <div class="clean-point">силовий пілатес і вправи з власною вагою</div>
+        <div class="clean-point">функціональні комплекси для всього тіла</div>
+        <div class="clean-point">короткі кардіо-блоки для тонусу та рельєфу</div>
+      </div>
+      
+      <div class="clean-meta-tags">
+        <span class="clean-tag">30-45 хв</span>
+        <span class="clean-tag">3-4 рази на тиждень</span>
+        <span class="clean-tag">середня інтенсивність</span>
+      </div>
+    </article>
+
+    <!-- Картка 03 -->
+    <article class="clean-program-card">
+      <div class="clean-card-header">
+        <span class="clean-card-number">03 /</span>
+        <span class="clean-level">Профі</span>
+      </div>
+      
+      <h3 class="clean-card-title">Максимальна форма і витривалість</h3>
+      
+      <p class="clean-main-text">
+        Динамічний рівень для тих, хто хоче сильного навантаження, швидшого темпу
+        й відчутного виклику. Програма поєднує інтенсивність, координацію та силові
+        блоки, щоб розвивати атлетичність і тримати тіло в піковій формі.
+      </p>
+
+      <div class="clean-points">
+        <div class="clean-point">HIIT, темпові серії та вибухове кардіо</div>
+        <div class="clean-point">силові мікси для витривалості м'язів</div>
+        <div class="clean-point">координація, баланс і активне жироспалювання</div>
+      </div>
+      
+      <div class="clean-meta-tags">
+        <span class="clean-tag">45-60 хв</span>
+        <span class="clean-tag">3-5 разів на тиждень</span>
+        <span class="clean-tag">висока інтенсивність</span>
+      </div>
+    </article>
+  </div>
+</section>
+
 <%= month_calendar(events: @exercises) do |date, meetings| %>
   <%= date %>
   <% meetings.each do |meeting| %>
