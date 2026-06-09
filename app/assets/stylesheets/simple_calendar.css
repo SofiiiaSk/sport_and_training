@@ -27,20 +27,23 @@
 }
 
 .clean-luxury-head h2 {
-  margin: 0;
-  color: #f4d7a4;
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  text-align: center;
+  margin-top: 10px;
+  font-family: "Playfair Display", "Georgia", serif;
+  color: #d4a356;
+  font-size: 3.5rem;
   font-weight: 400;
-  line-height: 1.1;
+  white-space: nowrap; /* Забороняє перенос тексту */
 }
 
 .clean-luxury-head p {
   margin: 0;
   color: #a9a094;
-  font-size: 0.95rem;
+  font-size: 18px;
   line-height: 1.6;
   text-align: left;
+  margin-top: -30px;
+  white-space: nowrap; /* Забороняє перенос тексту */
 }
 /* Сітка для карток */
 .clean-program-list {
@@ -61,6 +64,7 @@
   transition:
     border-color 0.3s ease,
     transform 0.3s ease;
+  text-size-adjust: 16px;
 }
 
 /* Легкий інтерактив при наведенні */
@@ -94,7 +98,7 @@
 /* Заголовок всередині картки */
 .clean-card-title {
   margin: 0 0 1.25rem 0;
-  color: #f4d7a4;
+  color: #d4a356;
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(1.5rem, 2.5vw, 2.2rem);
   font-weight: 400;
@@ -105,7 +109,7 @@
 .clean-main-text {
   margin: 0 0 1.5rem 0;
   color: #b5ada3;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   line-height: 1.65;
   max-width: 800px;
 }
@@ -122,7 +126,7 @@
   align-items: flex-start;
   gap: 0.75rem;
   color: #cfc6ba;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .clean-point::before {
@@ -148,7 +152,7 @@
   border-radius: 4px; /* Квадратні кути з легким закругленням */
   background: rgba(255, 255, 255, 0.02);
   color: #a49d93;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   letter-spacing: 0.02em;
 }
 
@@ -179,10 +183,19 @@
   padding: 20px;
   color: #f5f5f5;
   font-family: sans-serif;
+  max-width: 1500px;
+  width: 100%;
+
+  /* Додаємо flexbox, щоб внутрішні елементи правильно ділили простір */
+  display: flex;
+  flex-direction: column;
 }
 .simple-calendar table {
   border-radius: 12px;
   overflow: hidden;
+  /* ДОДАЄМО ЦЕ: */
+  flex-grow: 1; /* Змушує таблицю розтягнутися на всю доступну висоту контейнера */
+  height: 100%;
 }
 
 /* заголовок месяца */

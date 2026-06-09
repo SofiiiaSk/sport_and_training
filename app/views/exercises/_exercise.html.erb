@@ -1,10 +1,22 @@
 <div class="exercise-show">
-  <strong>Дата:</strong>
-  <%= exercise.date %>
-  <br>
-  <strong>Тривалість:</strong>
-  <%= exercise.duration %>
-  <br>
-  <strong> Тип вправи type:</strong>
-  <%= exercise.exercise_type %>
+  <!-- Ліва колонка: Назва + Дата -->
+  <div class="col-main">
+    <span class="row-name">
+      <%= exercise.exercise_type %>
+    </span>
+    <span class="row-date">
+      <%= exercise.date %>
+    </span>
+  </div>
+  
+  <!-- Середня колонка: Тривалість -->
+  <div class="col-time">
+    <%= exercise.duration %> хв
+  </div>
+
+  <!-- Права колонка: Кнопка дії з вашим текстом -->
+  <div class="col-action">
+    <!-- Сюди ставите ваше посилання, яке виводить "Показати це тренування" -->
+    <%= link_to "Показати це тренування", exercise_path(exercise) %>
+  </div>
 </div>
