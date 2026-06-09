@@ -1,4 +1,4 @@
-.exercise-container {
+/*.exercise-container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -69,4 +69,75 @@
   border-radius: 8px;
   background: #d4a356;
   cursor: pointer;
+}
+
+*/
+/* Рядок тренування */
+.exercise-show {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10px;
+  background: transparent;
+  border-bottom: 1px solid rgba(199, 154, 75, 0.15); /* Тонка золота лінія під рядком */
+  font-family: "Montserrat", sans-serif;
+  max-width: 750px; /* Трохи збільшили ширину, бо текст кнопки став довшим */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ліва частина: назва та дата */
+.exercise-show .col-main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+/* Назва тренування */
+.exercise-show .row-name {
+  color: #f4d7a4; /* Світле золото */
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Дата під назвою */
+.exercise-show .row-date {
+  color: #a9a094; /* Графітовий сірий */
+  font-size: 17px;
+}
+
+/* Середня частина: Тривалість */
+.exercise-show .col-time {
+  color: #f4d7a4;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 0 25px;
+  white-space: nowrap;
+}
+
+/* Права частина: Кнопка "Показати це тренування" */
+.exercise-show .col-action a {
+  color: #c79a4b; /* Золотий текст */
+  text-decoration: none;
+  font-size: 12px; /* Трохи зменшили шрифт, щоб довга фраза виглядала акуратно */
+  font-weight: 600;
+  text-transform: uppercase; /* Робить літери великими */
+  letter-spacing: 0.05em;
+  white-space: nowrap; /* Забороняє тексту кнопки розриватися на два рядки */
+
+  /* Малюємо рамку кнопки */
+  border: 1px solid rgba(199, 154, 75, 0.4);
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+/* Ефект при наведенні на саму кнопку */
+.exercise-show .col-action a:hover {
+  color: #0d0d0d; /* Текст стає чорним */
+  background: #c79a4b; /* Фон повністю золотим */
+  border-color: #c79a4b;
+  box-shadow: 0 0 10px rgba(199, 154, 75, 0.3); /* Легке світіння */
 }
