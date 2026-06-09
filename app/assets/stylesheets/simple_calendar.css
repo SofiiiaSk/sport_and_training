@@ -45,6 +45,7 @@
   margin-top: -30px;
   white-space: nowrap; /* Забороняє перенос тексту */
 }
+
 /* Сітка для карток */
 .clean-program-list {
   display: grid;
@@ -269,4 +270,82 @@
 
 table.days {
   table-layout: fixed;
+}
+
+.clean-luxury-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.8fr);
+  gap: 2rem;
+  align-items: end;
+  max-width: 1000px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.clean-kicker {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #bd8d46;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+.clean-luxury-head h2 {
+  text-align: center;
+  margin-top: 10px;
+  font-family: "Playfair Display", "Georgia", serif;
+  color: #d4a356;
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.clean-luxury-head p {
+  margin: 0;
+  color: #a9a094;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: left;
+  margin-top: -30px;
+  white-space: nowrap;
+}
+
+@media (max-width: 860px) {
+  .clean-luxury-programs {
+    padding: 3.5rem 1rem;
+  }
+
+  .clean-luxury-head {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+
+  .clean-kicker {
+    font-size: 0.6rem;
+    text-align: center;
+  }
+
+  .clean-luxury-head h2 {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    white-space: normal;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .clean-luxury-head p {
+    font-size: 15px;
+    white-space: normal;
+    text-align: center;
+    margin-top: 0;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .clean-program-card {
+    padding: 1.75rem;
+  }
 }

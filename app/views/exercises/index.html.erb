@@ -114,9 +114,7 @@
 <div class="exercise-show-links">
   <% @exercises.each do |exercise| %>
     <%= render exercise %>
-    <p>
-      <%= link_to "Показати це тренування", exercise,  class: "exercise-show-links" %>
-    </p>
+
   <% end %>
-  <%= link_to "Додати нове тренування", new_exercise_path, class: "exercise-show-links"%>
+  <%= link_to "Додати нове тренування", new_exercise_path, class: "add-but-link"%>
 </div>
