@@ -1,11 +1,36 @@
+/* ==========================================================================
+   0. ГЛОБАЛЬНЕ СКИДАННЯ ТА ЗАХИСТ ВІД ВИХОДУ ЗА МЕЖІ (ГОРІЗОНТАЛЬНОЇ ПРОКРУТКИ)
+   ========================================================================== */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* Гарантує, що нічого не вилізе за межі екрану */
+  box-sizing: border-box;
+  background: #0b0b0a; /* Основний фон сайту */
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; /* Захищає падінги від розширення блоків */
+}
+
+/* ==========================================================================
+   1. СЕКЦІЯ ПРОГРАМ (CLEAN LUXURY PROGRAMS)
+   ========================================================================== */
 .clean-luxury-programs {
   padding: 5rem 1.5rem;
-  background: #0b0b0a; /* Темний фон всієї секції */
+  background: #0b0b0a;
   color: #f4efe7;
   font-family:
     system-ui,
     -apple-system,
     sans-serif;
+  width: 100%;
+  max-width: 100%;
 }
 
 .clean-luxury-head {
@@ -18,22 +43,20 @@
 }
 
 .clean-kicker {
-  display: inline-block;
-  margin-bottom: 0.75rem;
+  display: block;
+  margin-bottom: 0.5rem;
   color: #bd8d46;
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
 }
 
 .clean-luxury-head h2 {
-  text-align: center;
-  margin-top: 10px;
+  margin: 10px 0 0 0;
   font-family: "Playfair Display", "Georgia", serif;
   color: #d4a356;
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
   font-weight: 400;
-  white-space: nowrap; /* Забороняє перенос тексту */
 }
 
 .clean-luxury-head p {
@@ -42,33 +65,29 @@
   font-size: 18px;
   line-height: 1.6;
   text-align: left;
-  margin-top: -30px;
-  white-space: nowrap; /* Забороняє перенос тексту */
 }
 
 /* Сітка для карток */
 .clean-program-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.75rem; /* Відступ між картками */
+  gap: 2rem;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-/* Стиль самої картки (як на референсах) */
+/* Стиль самої картки */
 .clean-program-card {
-  background: #111110; /* Трохи світліший за загальний фон, щоб виділятися */
-  border: 1px solid rgba(189, 141, 70, 0.15); /* Тонка золотаво-темна рамка */
-  border-radius: 12px; /* Заокруглення як на скріншоті */
+  background: #111110;
+  border: 1px solid rgba(189, 141, 70, 0.15);
+  border-radius: 12px;
   padding: 2.5rem;
-  box-sizing: border-box;
+  width: 100%; /* Картка займає всю ширину сітки */
   transition:
     border-color 0.3s ease,
     transform 0.3s ease;
-  text-size-adjust: 16px;
 }
 
-/* Легкий інтерактив при наведенні */
 .clean-program-card:hover {
   border-color: rgba(189, 141, 70, 0.35);
 }
@@ -139,75 +158,52 @@
   background: #bd8d46;
 }
 
-/* Блок з тегами (як iOS / Android кнопки з рамками) */
+/* Блок з тегами (КНОПКИ) — Виправлено зминання! */
 .clean-meta-tags {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Кнопки гарно переносяться, якщо не влазять */
   gap: 0.75rem;
+  width: 100%;
 }
 
 .clean-tag {
   display: inline-block;
-  padding: 0.45rem 1rem;
-  border: 1px solid rgba(189, 141, 70, 0.25); /* Тонка рамка навколо тегу */
-  border-radius: 4px; /* Квадратні кути з легким закругленням */
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(189, 141, 70, 0.25);
+  border-radius: 6px;
   background: rgba(255, 255, 255, 0.02);
   color: #a49d93;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   letter-spacing: 0.02em;
+  white-space: normal; /* Дозволяє тексту в кнопці переноситись, якщо екран замалий */
+  text-align: center;
 }
 
-/* Адаптив під мобільні пристрої */
-@media (max-width: 860px) {
-  .clean-luxury-programs {
-    padding: 3.5rem 1rem;
-  }
-
-  .clean-luxury-head {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .clean-program-card {
-    padding: 1.75rem;
-  }
-}
-
-/* общий контейнер календаря */
+/* ==========================================================================
+   2. АДАПТИВНИЙ КАЛЕНДАР (SIMPLE CALENDAR) — ВЕРСІЯ ДЛЯ ПК
+   ========================================================================== */
 .simple-calendar {
   font-family: "Montserrat", sans-serif;
   background: #111;
   border: 1px solid #c79a4b;
-  margin: 30px 30px 30px 30px;
+  margin: 40px auto;
   border-radius: 20px;
-  padding: 20px;
+  padding: 25px;
   color: #f5f5f5;
-  font-family: sans-serif;
-  max-width: 1500px;
-  width: 100%;
-
-  /* Додаємо flexbox, щоб внутрішні елементи правильно ділили простір */
+  max-width: 1100px; /* Оптимальний розмір для ПК */
+  width: calc(100% - 3rem); /* Безпечні відступи по боках */
   display: flex;
   flex-direction: column;
-}
-.simple-calendar table {
-  border-radius: 12px;
-  overflow: hidden;
-  /* ДОДАЄМО ЦЕ: */
-  flex-grow: 1; /* Змушує таблицю розтягнутися на всю доступну висоту контейнера */
-  height: 100%;
+  box-sizing: border-box;
 }
 
-/* заголовок месяца */
+/* Заголовок місяця та навігація */
 .simple-calendar .calendar-heading {
-  font-family: "Montserrat", sans-serif;
   color: #c79a4b;
   font-size: 22px;
   margin-bottom: 15px;
 }
 
-/* ссылки Previous Today Next */
 .simple-calendar .calendar-heading a {
   color: #c79a4b;
   text-decoration: none;
@@ -218,134 +214,160 @@
   text-decoration: underline;
 }
 
-/* таблица */
+/* Таблиця */
 .simple-calendar table {
   width: 100%;
   border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  table-layout: fixed; /* Ділить дні строго порівну */
 }
 
-/* дни недели */
+/* Дні тижня */
 .simple-calendar th {
   color: #c79a4b;
   font-weight: 600;
   padding: 10px;
+  font-size: 15px;
   border-bottom: 1px solid #333;
 }
 
-/* клетки дней */
+/* Клітинки днів на ПК */
 .simple-calendar td {
   border: 1px solid #222;
-  height: 120px;
+  height: 90px;
   padding: 8px;
   vertical-align: top;
   background: #0d0d0d;
+  font-size: 14px;
+  transition: background 0.2s ease;
+  color: #f4d7a4;
 }
 
-/* день при наведении */
 .simple-calendar td:hover {
   background: #1a1a1a;
 }
 
-/* дни другого месяца */
+/* Дні іншого місяця */
 .simple-calendar .prev-month,
 .simple-calendar .next-month {
   background: #1a1a1a;
   color: #777;
 }
 
-/* текущий день */
+/* Поточний день */
 .simple-calendar .today {
   border: 2px solid #c79a4b;
 }
 
-/* блок упражнения */
+/* Картка тренування всередині календаря на ПК */
 .exercise-event {
   background: #c79a4b;
   color: #111;
   padding: 3px 6px;
-  border-radius: 6px;
-  font-size: 13px;
+  border-radius: 5px;
+  font-size: 12px;
   margin-top: 4px;
-}
-
-table.days {
-  table-layout: fixed;
-}
-
-.clean-luxury-head {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.8fr);
-  gap: 2rem;
-  align-items: end;
-  max-width: 1000px;
-  margin: 0 auto 3.5rem auto;
-}
-
-.clean-kicker {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #bd8d46;
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  text-align: center;
-}
-
-.clean-luxury-head h2 {
-  text-align: center;
-  margin-top: 10px;
-  font-family: "Playfair Display", "Georgia", serif;
-  color: #d4a356;
-  font-size: clamp(2rem, 3.5vw, 3.5rem);
-  font-weight: 400;
+  line-height: 1.3;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.clean-luxury-head p {
-  margin: 0;
-  color: #a9a094;
-  font-size: 18px;
-  line-height: 1.6;
-  text-align: left;
-  margin-top: -30px;
-  white-space: nowrap;
-}
+/* ==========================================================================
+   3. ГЛОБАЛЬНА АДАПТИВНІСТЬ (ДЛЯ СМАРТФОНІВ ТА ПЛАНШЕТІВ)
+   ========================================================================== */
 
 @media (max-width: 860px) {
+  /* Відступи для всієї секції Luxury */
   .clean-luxury-programs {
     padding: 3.5rem 1rem;
   }
 
+  /* Шапка перелаштовується в один стовпчик і центрується */
   .clean-luxury-head {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-bottom: 2.5rem;
     text-align: center;
   }
 
   .clean-kicker {
-    font-size: 0.6rem;
     text-align: center;
   }
 
   .clean-luxury-head h2 {
     font-size: clamp(1.8rem, 6vw, 2.8rem);
-    white-space: normal;
     text-align: center;
     margin-top: 0;
   }
 
   .clean-luxury-head p {
     font-size: 15px;
-    white-space: normal;
     text-align: center;
-    margin-top: 0;
-    max-width: 480px;
+    margin-top: 0; /* Прибрали дивний від'ємний марджин, який ламав адаптив */
+    max-width: 550px;
     margin-left: auto;
     margin-right: auto;
   }
 
+  /* Картки стають компактнішими */
   .clean-program-card {
-    padding: 1.75rem;
+    padding: 1.75rem 1.25rem;
+  }
+
+  .clean-main-text {
+    font-size: 1rem;
+  }
+
+  /* Адаптив календаря: стискаємо без втрати пропорцій */
+  .simple-calendar {
+    width: calc(100% - 2rem); /* Безпечний відступ на мобільних */
+    padding: 12px;
+    margin: 20px auto;
+    border-radius: 12px;
+  }
+
+  .simple-calendar .calendar-heading {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .simple-calendar th {
+    padding: 6px 2px;
+    font-size: 12px;
+  }
+
+  /* Клітинки стають меншими, щоб поміститися на екрані */
+  .simple-calendar td {
+    height: 55px;
+    padding: 4px 2px;
+    font-size: 11px;
+  }
+
+  /* Картки тренувань у календарі стискаються акуратно */
+  .exercise-event {
+    padding: 1px 3px;
+    border-radius: 3px;
+    font-size: 9px;
+    margin-top: 2px;
+    line-height: 1.1;
+  }
+}
+
+/* Окреме правило для дуже маленьких екранів (телефон вертикально) */
+@media (max-width: 480px) {
+  .clean-luxury-programs {
+    padding: 2.5rem 0.75rem;
+  }
+
+  .clean-meta-tags {
+    justify-content: center; /* Кнопки тренувань вирівнюються по центру екрану смартфона */
+  }
+
+  .clean-tag {
+    width: 100%; /* На зовсім крихітних екранах кнопки стають на всю ширину для зручності тапу */
+    font-size: 0.8rem;
   }
 }
