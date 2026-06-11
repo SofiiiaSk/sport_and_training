@@ -22,7 +22,7 @@ production:
     <<: *default
     url: <%= ENV['DATABASE_URL'] %>
     database: sport_and_training_production
-    username: sport_and_training
+    username: <%= ENV.fetch("DATABASE_USERNAME") { "sport_and_training" } %>
     password: <%= ENV["DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
