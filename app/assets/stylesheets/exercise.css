@@ -146,6 +146,11 @@ a.golden-button:hover {
   background: #c79a4b;
   box-shadow: 0 0 10px rgba(199, 154, 75, 0.3); /* Легке світіння */
 }
+.golden-button.add-butt {
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-bottom: 20px;
+}
 
 /* ===========================
    АДАПТИВНОСТЬ
