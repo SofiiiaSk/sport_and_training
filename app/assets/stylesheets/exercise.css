@@ -98,13 +98,6 @@
   transition: all 0.2s ease;
 }
 
-.exercise-show a:hover {
-  color: #0d0d0d; /* Текст стає чорним */
-  background: #c79a4b; /* Фон повністю золотим */
-  border-color: #c79a4b;
-  box-shadow: 0 0 10px rgba(199, 154, 75, 0.3); /* Легке світіння */
-}
-
 /* ===========================
    КНОПКА ДОБАВЛЕНИЯ
 =========================== */
@@ -126,25 +119,32 @@
 }
 
 .add-but-link:hover {
-  color: #0d0d0d; /* Текст стає чорним */
-  background: #c79a4b; /* Фон повністю золотим */
-  border-color: #c79a4b;
-  box-shadow: 0 0 10px rgba(199, 154, 75, 0.3); /* Легке світіння */
 }
 
 /* ===========================
    ССЫЛКИ
 =========================== */
 
-.exercise-show-links a {
+a.golden-button {
+  color: #c79a4b;
   text-decoration: none;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold;
-  border-radius: 6px;
-  transition: 0.3s;
-  margin: 10px 30px 20px 30px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  border: 1px solid rgba(199, 154, 75, 0.4);
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+a.golden-button:hover {
+  color: #0d0d0d; /* Текст стає чорним */
+  border-color: #c79a4b;
+  background: #c79a4b;
+  box-shadow: 0 0 10px rgba(199, 154, 75, 0.3); /* Легке світіння */
 }
 
 /* ===========================
