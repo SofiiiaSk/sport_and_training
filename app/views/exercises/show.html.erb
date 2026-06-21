@@ -3,7 +3,7 @@
   <%= render @exercise %>
 </div>
 <div class="exercise-show-links">
-  <%= link_to "Редагувати тренування", edit_exercise_path(@exercise), class: "exercise-show-links" %> |
-  <%= link_to "Назад до тренувань", exercises_path, class: "exercise-show-links" %>
-  <%= button_to "Видалити це тренування", @exercise, method: :delete, class: "button-delete" %>
+  <%= link_to "Редагувати тренування", edit_exercise_path(@exercise), class: "golden-button add-butt" %> |
+  <%= link_to "Назад до тренувань", exercises_path, class: "golden-button" %>
+  <%= button_to "Видалити це тренування", @exercise, method: :delete, class: "golden-button add-butt" %>
 </div>
