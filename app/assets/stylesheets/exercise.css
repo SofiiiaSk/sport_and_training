@@ -5,7 +5,9 @@
 .exercise-box {
   width: 100%;
   max-width: 400px;
+  box-sizing: border-box;
   padding: 30px;
+  margin-top: 30px;
   color: #d4a356;
   border-radius: 16px;
   border: 1px solid rgba(212, 163, 86, 0.2);
@@ -21,7 +23,6 @@
   border: 1px solid #a67c37;
   border-radius: 8px;
 }
-
 .button {
   width: 100%;
   padding: 12px;
@@ -42,6 +43,16 @@
 /* ===========================
    СПИСОК ТРЕНИРОВОК
 =========================== */
+.exercise-container {
+  display: flex;
+  justify-content: center; /* Центрує форму по горизонталі */
+  align-items: center; /* Центрує по вертикалі, якщо потрібно */
+
+  /* Важливо для мобілок: */
+  padding-left: 16px; /* Щоб на телефоні форма не липла до лівого краю */
+  padding-right: 16px; /* Щоб не липла до правого краю */
+  box-sizing: border-box; /* Щоб паддінги не ламали ширину */
+}
 
 .exercise-show {
   display: flex;
@@ -147,9 +158,28 @@ a.golden-button:hover {
   box-shadow: 0 0 10px rgba(199, 154, 75, 0.3); /* Легке світіння */
 }
 .golden-button.add-butt {
+  color: #c79a4b;
+  background: black;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  border: 1px solid rgba(199, 154, 75, 0.4);
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: inline-block;
+  transition: all 0.2s ease;
   margin-top: 15px;
   margin-left: 15px;
   margin-bottom: 20px;
+}
+.golden-button.add-butt:hover {
+  color: #0d0d0d; /* Текст стає чорным */
+  border-color: #c79a4b;
+  background: #c79a4b;
+  box-shadow: 0 0 10px rgba(199, 154, 75, 0.3); /* Легкое світіння */
 }
 
 /* ===========================
